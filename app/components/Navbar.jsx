@@ -1,81 +1,134 @@
 import { assets } from "@/assets/assets";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/Navbar.module.css";
 
 const Navbar = () => {
-    const sideMenuRef = useRef();
-    const openMenu = () => {
-        sideMenuRef.current.style.transform = "translateX(-16rem)";
-    }
-    const closeMenu = () => {
-      sideMenuRef.current.style.transform = "translateX(16rem)";
+  const [isScroll, setIsScroll] = useState(false);
+  const sideMenuRef = useRef();
+
+  const openMenu = () => {
+    sideMenuRef.current.style.transform = "translateX(-16rem)";
+  };
+
+  const closeMenu = () => {
+    sideMenuRef.current.style.transform = "translateX(16rem)";
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) setIsScroll(true);
+      else setIsScroll(false);
     };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
+      {/* Background Layer */}
       <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
         <Image src={assets.header_bg_color} alt="" className="w-full" />
       </div>
-      <nav className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+
+      {/* Navbar */}
+      <nav
+        className={`w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-[1000] transition-all duration-300 ${
+          isScroll ? "bg-white/50 backdrop-blur-lg shadow-md" : "bg-transparent"
+        }`}
+      >
+        {/* Logo */}
         <a href="#top">
-          <Image
-            src={assets.logo}
-            alt=" "
-            className="w-28 cursor-pointer m14"
-          />
+          <Image src={assets.logo} alt="Logo" className="w-28 cursor-pointer" />
         </a>
+
+        {/* Desktop Navigation */}
         <ul
-          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${styles.navList} bg-white shadow-sm bg-opacity-55`}
+          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
+            isScroll ? "" : "bg-white shadow-sm bg-opacity-55"
+          }`}
         >
           <li>
-            <a href="#top">Home</a>
+            <a className="ovo-font" href="#top">
+              Home
+            </a>
           </li>
           <li>
-            <a href="#about">About Me</a>
+            <a className="ovo-font" href="#about">
+              About Me
+            </a>
           </li>
           <li>
-            <a href="#work">My Work</a>
+            <a className="ovo-font" href="#work">
+              My Work
+            </a>
           </li>
           <li>
-            <a href="#services">Services</a>
+            <a className="ovo-font" href="#services">
+              Services
+            </a>
           </li>
           <li>
-            <a href="#contact">Contact Me</a>
+            <a className="ovo-font" href="#contact">
+              Contact Me
+            </a>
           </li>
         </ul>
+
+        {/* Right Side Icons */}
         <div className="flex items-center gap-4">
           <button>
-            <Image src={assets.moon_icon} alt="" className="w-6" />
+            <Image src={assets.moon_icon} alt="Dark Mode" className="w-6" />
           </button>
           <a
             href="#contact"
             className={`hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 ${styles.contactLink}`}
           >
-            Contact <Image src={assets.arrow_icon} alt=" " className="w-3" />
+            Contact{" "}
+            <Image src={assets.arrow_icon} alt="Arrow" className="w-3" />
           </a>
           <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={assets.menu_black} alt="" className="w-6" />
+            <Image src={assets.menu_black} alt="Menu" className="w-6" />
           </button>
         </div>
+
         {/* Mobile Menu */}
-              <ul ref={sideMenuRef}  className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 h-screen w-64 z-50 bg-rose-50 transition duration-500">
-                  <div className="absolute right-6 top-6" onClick={closeMenu}>
-                      <Image src={assets.close_black} alt="" className="w-5 cursor-pointer"/>
-                  </div>
+        <ul
+          ref={sideMenuRef}
+          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 h-screen w-64 z-50 bg-rose-50 transition duration-500"
+        >
+          <div className="absolute right-6 top-6" onClick={closeMenu}>
+            <Image
+              src={assets.close_black}
+              alt="Close"
+              className="w-5 cursor-pointer"
+            />
+          </div>
           <li>
-            <a href="#top" onClick={closeMenu}>Home</a>
+            <a href="#top" onClick={closeMenu}>
+              Home
+            </a>
           </li>
           <li>
-            <a href="#about" onClick={closeMenu}>About Me</a>
+            <a href="#about" onClick={closeMenu}>
+              About Me
+            </a>
           </li>
           <li>
-            <a href="#work" onClick={closeMenu}>My Work</a>
+            <a href="#work" onClick={closeMenu}>
+              My Work
+            </a>
           </li>
           <li>
-            <a href="#services" onClick={closeMenu}>Services</a>
+            <a href="#services" onClick={closeMenu}>
+              Services
+            </a>
           </li>
           <li>
-            <a href="#contact" onClick={closeMenu}>Contact Me</a>
+            <a href="#contact" onClick={closeMenu}>
+              Contact Me
+            </a>
           </li>
         </ul>
       </nav>
