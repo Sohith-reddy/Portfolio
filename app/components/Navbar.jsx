@@ -85,7 +85,7 @@ const Navbar = () => {
             href="#contact"
             className={`hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 ${styles.contactLink}`}
           >
-            Contact{" "}
+            Contact
             <Image src={assets.arrow_icon} alt="Arrow" className="w-3" />
           </a>
           <button className="block md:hidden ml-3" onClick={openMenu}>
