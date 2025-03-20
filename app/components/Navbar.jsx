@@ -40,7 +40,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <a href="#top">
-          <Image src={assets.logo} alt="Logo" className="w-28 cursor-pointer" />
+          <Image src={assets.portfolio_1} alt="Logo" className="w-28 cursor-pointer" />
         </a>
 
         {/* Desktop Navigation */}

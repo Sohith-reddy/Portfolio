@@ -12,6 +12,8 @@ import git from "./git.png";
 import mongodb from "./mongodb.png";
 import right_arrow_white from "./right-arrow-white.png";
 import logo from "./logo.png";
+import logo_sohith from "./logo_sohith.png";
+import portfolio_1 from "./portfolio_1.png"
 import logo_dark from "./logo_dark.png";
 import mail_icon from "./mail_icon.png";
 import mail_icon_dark from "./mail_icon_dark.png";
@@ -52,6 +54,8 @@ export const assets = {
   right_arrow_white,
   logo,
   logo_dark,
+  logo_sohith,
+  portfolio_1,
   mail_icon,
   mail_icon_dark,
   profile_img,
@@ -83,18 +87,18 @@ export const workData = [
     imageUrl: "/work-1.png", // using leading slash and correct filename
   },
   {
-    title: "Geo based app",
+    title: "Weather App",
     description: "Mobile App",
     imageUrl: "/work-2.png", // updated to work-2.png with leading slash
   },
   {
-    title: "Photography site",
-    description: "Web Design",
+    title: "Review Bot",
+    description: "Full Stack Development",
     imageUrl: "/work-3.png",
   },
   {
-    title: "UI/UX designing",
-    description: "UI/UX Design",
+    title: "RegBot",
+    description: "Generative AI",
     imageUrl: "/work-4.png",
   },
 ];
@@ -115,15 +119,15 @@ export const serviceData = [
   },
   {
     icon: assets.ui_icon,
-    title: "UI/UX design",
+    title: "Full Stack Development",
     description:
-      "UI/UX design focuses on creating a seamless user experience...",
+      "Full Stack Development focuses on creating a seamless user experience...",
     link: "",
   },
   {
-    icon: assets.graphics_icon,
-    title: "Graphics design",
-    description: "Creative design solutions to enhance visual communication...",
+    icon: assets.web_icon,
+    title: "Generative AI",
+    description: "Creative GenAI solutions to enhance visual communication...",
     link: "",
   },
 ];
