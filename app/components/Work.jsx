@@ -63,22 +63,56 @@
 import { assets, workData } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
+import { motion } from "motion/react";
 
 const Work = () => {
   return (
-    <div id="work" className="w-full px-[12%] py-10 scroll-mt-20">
-      <h4 className="text-center mb-2 text-lg ovo-font">My Portfolio</h4>
-      <h2 className="text-center text-5xl ovo-font">My Latest Work</h2>
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 ovo-font">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      id="work"
+      className="w-full px-[12%] py-10 scroll-mt-20"
+    >
+      <motion.h4
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="text-center mb-2 text-lg ovo-font"
+      >
+        My Portfolio
+      </motion.h4>
+      <motion.h2
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="text-center text-5xl ovo-font"
+      >
+        My Latest Work
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+        className="text-center max-w-2xl mx-auto mt-5 mb-12 ovo-font"
+      >
         Welcome to my Development portfolio! I specialize in programming, cloud
-        computing, AI, and web development, with expertise in Python, C/C++, Java,
-        and Flutter. With certifications in AWS and Google Cloud, I also have a
-        strong foundation in AI, data science, and responsive web design.
+        computing, AI, and web development, with expertise in Python, C/C++,
+        Java, and Flutter. With certifications in AWS and Google Cloud, I also
+        have a strong foundation in AI, data science, and responsive web design.
         Explore my work and journey through technology and innovation!
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-10">
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.9 }}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-10"
+      >
         {workData.map((project, index) => (
-          <div
+          <motion.div
+            // initial={{ y: -20, opacity: 0 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
             key={index}
             style={{ backgroundImage: `url('${project.imageUrl}')` }}
             className="relative border rounded-lg overflow-hidden shadow-lg aspect-square bg-no-repeat bg-cover bg-center cursor-pointer group"
@@ -98,13 +132,24 @@ const Work = () => {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-      <a href="" className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-purple-100 duration-500">
-        Show More <Image src={assets.right_arrow_bold} alt="right-arrow" className="w-4"/>
-      </a>
-    </div>
+      </motion.div>
+      <motion.a
+        initial={{  opacity: 0 }}
+        whileInView={{opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.1}}
+        href="https://www.github.com/Sohith-reddy/"
+        className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-purple-100 duration-500"
+      >
+        Show More
+        <Image
+          src={assets.right_arrow_bold}
+          alt="right-arrow"
+          className="w-4"
+        />
+      </motion.a>
+    </motion.div>
   );
 };
 
