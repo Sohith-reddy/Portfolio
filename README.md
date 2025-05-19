@@ -6,9 +6,28 @@
 [![Next.js](https://img.shields.io/badge/Built%20with-Next.js%2014-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![GitHub Stars](https://img.shields.io/github/stars/Sohith-reddy/portfolio?style=for-the-badge&logo=github)](https://github.com/Sohith-reddy/portfolio/stargazers)
 
-[View Demo](https://your-portfolio-url.vercel.app) • [Report Bug](https://github.com/Sohith-reddy/portfolio/issues) • [Request Feature](https://github.com/Sohith-reddy/portfolio/issues)
+[View Demo](https://sohith-portfolio-sohith-reddys-projects.vercel.app) • [Report Bug](https://github.com/Sohith-reddy/portfolio/issues) • [Request Feature](https://github.com/Sohith-reddy/portfolio/issues)
 
-![Portfolio Preview](https://user-images.githubusercontent.com/99184393/235326123-portfolio-hero.png)
+<!-- ![Portfolio Preview](https://user-images.githubusercontent.com/99184393/235326123-portfolio-hero.png) -->
+
+</div>
+
+## 🎨 Portfolio Showcase
+
+<div align="center">
+
+### 🏠 Modern Landing Page
+
+  <img src="public/image_1.png" alt="Landing Page" width="100%"
+  />
+  
+### 💼 Interactive Projects Gallery
+
+  <img src="public/image_2.png" alt="Projects Gallery" width="100%"/>
+  
+### 📱 Responsive Design
+
+  <img src="public/image_3.png" alt="Mobile View" width="100%"/>
 
 </div>
 
@@ -18,6 +37,15 @@
 |-------------|--------|-----|
 | Production | [![Production](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio&style=for-the-badge)](https://sohith-portfolio-sohith-reddys-projects.vercel.app/) | [View](https://sohith-portfolio-sohith-reddys-projects.vercel.app/) |
 
+
+## 🚀 Tech Stack & Features
+
+| Category | Technologies & Features |
+|:---------|:----------------------|
+| 🎯 **Frontend** | • Next.js 14<br/>• Tailwind CSS<br/>• Framer Motion |
+| 🛠️ **Backend** | • Node.js<br/>• RESTful APIs<br/>• Web3Forms Integration |
+| ☁️ **Deployment** | • Vercel Platform<br/>• CI/CD Pipeline<br/>• Environment Management |
+| 📱 **Responsive** | • TailWind Css<br/>• Customized CSS<br/>
 
 ## 🎯 Key Features
 
@@ -94,28 +122,22 @@ const response = await fetch('https://api.web3forms.com/submit', {
 
 | Environment | URL |
 |-------------|-----|
-| Production | `https://your-portfolio-url.vercel.app` |
-| Preview (PR) | `https://portfolio-git-{branch}.vercel.app` |
-| Development | `https://dev.your-portfolio-url.vercel.app` |
+| Production | `https://sohith-portfolio-sohith-reddys-projects.vercel.app` |
 
-## 📈 Analytics Integration
-
-View your site's analytics at [Vercel Analytics](https://vercel.com/analytics)
 
 <div align="center">
 
 ## 🤝 Connect & Support
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/yourusername)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-blue?style=for-the-badge&logo=twitter)](https://twitter.com/yourusername)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-black?style=for-the-badge&logo=vercel)](https://your-portfolio-url.vercel.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/sohithreddy)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-blue?style=for-the-badge&logo=twitter)](https://twitter.com/Sohith_01)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-black?style=for-the-badge&logo=vercel)](https://sohith-portfolio-sohith-reddys-projects.vercel.app)
 
-### Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=Sohith-reddy/portfolio&type=Date)](https://star-history.com/#Sohith-reddy/portfolio&Date)
 
 ---
 
-<img src="https://raw.githubusercontent.com/rahulbanerjee26/githubProfileReadmeGenerator/main/gifs/heart.gif" width="20"/> **Made with ❤️ by Sohith Reddy**
+<br/> 
+
+**Made with ❤️ by Sohith Reddy**
 
 </div>
