@@ -1,4 +1,5 @@
-import user_image from "./user-image.png";
+// import user_image1 from "./user-image.png";
+import user_image from "./user-image_new.png"
 import code_icon from "./code-icon.png";
 import code_icon_dark from "./code-icon-dark.png";
 import edu_icon from "./edu-icon.png";
@@ -17,7 +18,8 @@ import portfolio_1 from "./portfolio_1.png"
 import logo_dark from "./logo_dark.png";
 import mail_icon from "./mail_icon.png";
 import mail_icon_dark from "./mail_icon_dark.png";
-import profile_img from "./profile-img.png";
+// import profile_img from "./profile-img.png"; //ddd
+import profile_img from "./profile-img_new.png";
 import download_icon from "./download-icon.png";
 import hand_icon from "./hand-icon.png";
 import header_bg_color from "./header-bg-color.png";

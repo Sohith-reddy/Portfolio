@@ -40,59 +40,50 @@ const Navbar = () => {
       >
         {/* Logo */}
         <a href="#top">
-          <Image src={assets.portfolio_1} alt="Logo" className="w-28 cursor-pointer" />
+          <Image
+            src={assets.portfolio_1}
+            alt="Logo"
+            className="w-28 cursor-pointer"
+          />
         </a>
-
         {/* Desktop Navigation */}
         <ul
           className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
             isScroll ? "" : "bg-white shadow-sm bg-opacity-55"
           }`}
         >
-          <li>
-            <a className="ovo-font" href="#top">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="ovo-font" href="#about">
-              About Me
-            </a>
-          </li>
-          <li>
-            <a className="ovo-font" href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a className="ovo-font" href="#work">
-              My Work
-            </a>
-          </li>
-          <li>
-            <a className="ovo-font" href="#contact">
-              Contact Me
-            </a>
-          </li>
+          {["Home", "About Me", "Services", "My Work", "Contact Me"].map(
+            (item, index) => (
+              <li key={index} className={styles.navItem}>
+                <a
+                  className={`ovo-font relative overflow-hidden ${styles.navLink}`}
+                  href={`#${item.toLowerCase().replace(" ", "")}`}
+                >
+                  {item}
+                </a>
+              </li>
+            )
+          )}
         </ul>
-
         {/* Right Side Icons */}
         <div className="flex items-center gap-4">
-          {/* <button>
-            <Image src={assets.moon_icon} alt="Dark Mode" className="w-6" />
-          </button> */}
           <a
             href="#contact"
-            className={`hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 ${styles.contactLink}`}
+            className={`hidden lg:flex justify-center items-center px-12 py-2 border border-gray-500 rounded-full ml-4 
+    group relative overflow-hidden
+    transform transition-all duration-300 ease-in-out
+    hover:scale-105 hover:bg-white hover:border-transparent
+    ${isScroll ? "shadow-md" : ""} ${styles.contactLink}`}
+            style={{ minWidth: "110px" }} // Reduced width
           >
-            Contact
-            <Image src={assets.arrow_icon} alt="Arrow" className="w-3" />
+            <span className="relative z-10 group-hover:text-gray-800 text-center w-full transition-colors duration-300">
+              Contact
+            </span>
           </a>
           <button className="block md:hidden ml-3" onClick={openMenu}>
             <Image src={assets.menu_black} alt="Menu" className="w-6" />
           </button>
         </div>
-
         {/* Mobile Menu */}
         <ul
           ref={sideMenuRef}

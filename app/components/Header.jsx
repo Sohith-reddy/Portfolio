@@ -5,13 +5,19 @@ import { motion } from "motion/react";
 
 const Header = () => {
   return (
-    <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
+    <div className="w-11/12 max-w-4xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 pt-20">
+      {/* Changed h-screen to min-h-screen and added pt-20 for navbar spacing */}
       <motion.div
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
       >
-        <Image src={assets.profile_img} alt="" className="rounded-full w-32" />
+        <Image
+          src={assets.profile_img}
+          alt="Profile"
+          className="rounded-full w-32 mt-16" // Added mt-16 for extra top margin
+          priority // Added priority for faster loading
+        />
       </motion.div>
       <motion.h3
         initial={{ y: -20, opacity: 0 }}
@@ -41,13 +47,13 @@ const Header = () => {
         Next.js, Node.js, and machine learning, including computer vision and
         NLP.
       </motion.p>
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 w-full max-w-md mx-auto">
         <motion.a
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
           href="#contact"
-          className="px-10 py-3 border rounded-full text-white bg-black border-gray-500 flex items-center gap-2"
+          className="px-6 py-2.5 border rounded-full text-white bg-black border-gray-500 flex items-center gap-2 text-sm md:text-base hover:bg-gray-800 transition-colors"
         >
           Contact me
           <Image src={assets.right_arrow_white} alt="" className="w-4" />
@@ -56,11 +62,11 @@ const Header = () => {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          href="/Resume.pdf" // Correct path for Next.js public folder
+          href="/Resume.pdf"
           download="Sohith_Reddy_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 hover:bg-gray-100 transition-colors"
+          className="px-6 py-2.5 border rounded-full border-gray-500 flex items-center gap-2 text-sm md:text-base hover:bg-gray-100 transition-colors"
         >
           Resume
           <Image src={assets.download_icon} alt="download" className="w-4" />
