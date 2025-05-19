@@ -4,15 +4,18 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 
 const Contact = () => {
-    const [result, setResult] = useState("");
+  const [result, setResult] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const onSubmit = async (event) => {
-      event.preventDefault();
-      setResult("Sending....");
-      const formData = new FormData(event.target);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setResult("Sending....");
+    const formData = new FormData(event.target);
 
-      formData.append("access_key", "92886517-d35c-4c4e-9f87-02e8b875996d");
+    formData.append("access_key", "92886517-d35c-4c4e-9f87-02e8b875996d");
 
+    try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
@@ -27,7 +30,12 @@ const Contact = () => {
         console.log("Error", data);
         setResult(data.message);
       }
-    };
+    } catch (error) {
+      setResult("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -105,15 +113,31 @@ const Contact = () => {
           name="message"
         ></motion.textarea>
         <motion.button
-          whileHover={{scale:1.1}}
-          transition={{duration:0.3}}
+          whileHover={{ scale: isSubmitting ? 1 : 1.1 }}
+          transition={{ duration: 0.3 }}
           type="submit"
-          className="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500"
+          disabled={isSubmitting}
+          className={`py-3 px-8 w-max flex items-center justify-between gap-2 ${
+            isSubmitting ? "bg-gray-500" : "bg-black/80 hover:bg-black"
+          } text-white rounded-full mx-auto duration-500`}
         >
-          Submit Now{" "}
-          <Image src={assets.right_arrow_white} alt="" className="w-4" />
+          {isSubmitting ? (
+            "Submitting..."
+          ) : (
+            <>
+              Submit Now{" "}
+              <Image src={assets.right_arrow_white} alt="" className="w-4" />
+            </>
+          )}
         </motion.button>
-        <p className="mt-4">{result}</p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: result ? 1 : 0 }}
+          className="text-center mt-4 font-medium"
+          style={{ color: result.includes("Success") ? "#4CAF50" : "#F44336" }}
+        >
+          {result}
+        </motion.p>
       </motion.form>
     </motion.div>
   );

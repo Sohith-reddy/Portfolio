@@ -17,7 +17,7 @@
 | Environment | Status | URL |
 |-------------|--------|-----|
 | Production | [![Production](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio&style=for-the-badge)](https://your-portfolio-url.vercel.app) | [View](https://your-portfolio-url.vercel.app) |
-| Development | [![Development](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio-git-dev&style=for-the-badge)](https://dev.your-portfolio-url.vercel.app) | [View](https://dev.your-portfolio-url.vercel.app) |
+
 
 ## 🎯 Key Features
 
@@ -116,6 +116,6 @@ View your site's analytics at [Vercel Analytics](https://vercel.com/analytics)
 
 ---
 
-<img src="https://raw.githubusercontent.com/rahulbanerjee26/githubProfileReadmeGenerator/main/gifs/heart.gif" width="20"/> **Made with love by Sohith Reddy**
+<img src="https://raw.githubusercontent.com/rahulbanerjee26/githubProfileReadmeGenerator/main/gifs/heart.gif" width="20"/> **Made with ❤️ by Sohith Reddy**
 
 </div>
