@@ -108,27 +108,27 @@ export const serviceData = [
     icon: assets.web_icon,
     title: "Web design",
     description: "Web development is the process of building, programming...",
-    link: "",
+    link: "https://www.github.com/Sohith-reddy",
   },
   {
     icon: assets.mobile_icon,
     title: "Mobile app",
     description:
       "Mobile app development involves creating software for mobile devices...",
-    link: "",
+    link: "https://www.github.com/Sohith-reddy",
   },
   {
     icon: assets.ui_icon,
     title: "Full Stack Development",
     description:
       "Full Stack Development focuses on creating a seamless user experience...",
-    link: "",
+    link: "https://www.github.com/Sohith-reddy",
   },
   {
     icon: assets.web_icon,
     title: "Generative AI",
     description: "Creative GenAI solutions to enhance visual communication...",
-    link: "",
+    link: "https://www.github.com/Sohith-reddy",
   },
 ];
 
@@ -138,7 +138,7 @@ export const infoList = [
     iconDark: assets.code_icon_dark,
     title: "Languages",
     description:
-      "C/C++, Python, Java, HTML, CSS, JavaScript, React Js, Next Js, SQL, Flutter",
+      "C/C++, Python, Java, HTML, CSS, JavaScript, React Js, Next Js, SQL, MongoDB ,Flutter",
   },
   {
     icon: assets.edu_icon,
@@ -150,7 +150,7 @@ export const infoList = [
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
     title: "Projects",
-    description: "Built more than 5 projects",
+    description: "Built more than 5 projects in multiple domains",
   },
 ];
 

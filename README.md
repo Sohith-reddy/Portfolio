@@ -16,7 +16,7 @@
 
 | Environment | Status | URL |
 |-------------|--------|-----|
-| Production | [![Production](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio&style=for-the-badge)](https://your-portfolio-url.vercel.app) | [View](https://your-portfolio-url.vercel.app) |
+| Production | [![Production](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio&style=for-the-badge)](https://sohith-portfolio-sohith-reddys-projects.vercel.app/) | [View](https://sohith-portfolio-sohith-reddys-projects.vercel.app/) |
 
 
 ## 🎯 Key Features
