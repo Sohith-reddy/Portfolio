@@ -132,6 +132,7 @@ const response = await fetch('https://api.web3forms.com/submit', {
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/sohithreddy)
 [![Twitter](https://img.shields.io/badge/Twitter-Follow-blue?style=for-the-badge&logo=twitter)](https://twitter.com/Sohith_01)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit-black?style=for-the-badge&logo=vercel)](https://sohith-portfolio-sohith-reddys-projects.vercel.app)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Profile-orange?style=for-the-badge&logo=leetcode)](https://leetcode.com/u/sohith_reddy01/)
 
 
 ---
