@@ -56,16 +56,19 @@ const Header = () => {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          href="/resume.pdf"
-          download
-          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2"
+          href="/Resume.pdf" // Correct path for Next.js public folder
+          download="Sohith_Reddy_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 hover:bg-gray-100 transition-colors"
         >
           Resume
-          <Image src={assets.download_icon} alt="" className="w-4" />
+          <Image src={assets.download_icon} alt="download" className="w-4" />
         </motion.a>
       </div>
     </div>
   );
 }
+// assets\public\Resume.pdf
 
 export default Header;

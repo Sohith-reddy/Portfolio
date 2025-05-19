@@ -11,6 +11,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/assets/public/:path*",
+        destination: "/assets/public/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
