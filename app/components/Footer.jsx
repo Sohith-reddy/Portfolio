@@ -14,10 +14,17 @@ const Footer = () => {
           alt="logo"
           className="w-36 mx-auto mb-2"
         />
-
         <div className="w-max flex items-center gap-2 mx-auto">
           <MdEmail className="w-6 h-6" />
-          sohithreddy33@gmail.com
+          <a
+            href="mailto:sohithreddy33@gmail.com"
+            // className="hover:underline hover:text-blue-600 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-gray-600 transition-colors"
+          >
+            sohithreddy33@gmail.com
+          </a>
         </div>
       </div>
       <div className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
