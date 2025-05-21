@@ -45,7 +45,6 @@
 | 🎯 **Frontend** | • Next.js 14<br/>• Tailwind CSS<br/>• Framer Motion |
 | 🛠️ **Backend** | • Node.js<br/>• RESTful APIs<br/>• Web3Forms Integration |
 | ☁️ **Deployment** | • Vercel Platform<br/>• CI/CD Pipeline<br/>• Environment Management |
-| 📱 **Responsive** | • TailWind Css<br/>• Customized CSS<br/>
 
 ## 🎯 Key Features
 
