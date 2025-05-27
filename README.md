@@ -138,6 +138,6 @@ const response = await fetch('https://api.web3forms.com/submit', {
 
 <br/> 
 
-**Made with ❤️ by Sohith Reddy**
+**Made with ❤️**
 
 </div>
