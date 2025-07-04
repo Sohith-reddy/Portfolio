@@ -111,13 +111,6 @@ const response = await fetch('https://api.web3forms.com/submit', {
 });
 ```
 
-## 🌐 Deployment URLs
-
-| Environment | URL |
-|-------------|-----|
-| Production | `https://sohith-portfolio-sohith-reddys-projects.vercel.app` |
-
-
 <div align="center">
 
 ## 🤝 Connect & Support
