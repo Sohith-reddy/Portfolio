@@ -55,12 +55,6 @@
 | 🛡️ **Security** | Headers Protection, Form Validation |
 | 🔍 **SEO** | Meta Tags, Sitemap, robots.txt |
 
-## 🚀 One-Click Deploy
-
-Deploy your own version of this portfolio using Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Sohith-reddy/portfolio)
-
 ## 💻 Local Development
 
 ```bash
