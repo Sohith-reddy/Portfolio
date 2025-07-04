@@ -50,7 +50,7 @@
 
 | Category | Features |
 |----------|----------|
-| 📱 **UI/UX** | Responsive Design, Dark Mode, Smooth Animations |
+| 📱 **UI/UX** | Responsive Design, Smooth Animations |
 | ⚡ **Performance** | 90+ Performance Score, Optimized Assets |
 | 🛡️ **Security** | Headers Protection, Form Validation |
 | 🔍 **SEO** | Meta Tags, Sitemap, robots.txt |

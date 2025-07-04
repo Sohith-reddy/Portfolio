@@ -44,8 +44,8 @@ const Header = () => {
       >
         I'm a full-stack developer passionate about deep learning, cloud
         computing, and scalable applications. I have experience with React,
-        Next.js, Node.js, and machine learning, including computer vision and
-        NLP.
+        Angular, Node.js, and machine learning, including computer vision and
+        NLP along with transformers.
       </motion.p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 w-full max-w-md mx-auto">
         <motion.a

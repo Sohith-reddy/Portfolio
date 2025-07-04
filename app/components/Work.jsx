@@ -97,8 +97,8 @@ const Work = () => {
         className="text-center max-w-2xl mx-auto mt-5 mb-12 ovo-font"
       >
         Welcome to my Development portfolio! I specialize in programming, cloud
-        computing, AI, and web development, with expertise in Python, C/C++,
-        Java, and Flutter. With certifications in AWS and Google Cloud, I also
+        computing, AI, and web development, with expertise in Python, C++,
+        Java, JavaScript and Dart. With certifications in AWS and NPTEL, I also
         have a strong foundation in AI, data science, and responsive web design.
         Explore my work and journey through technology and innovation!
       </motion.p>
@@ -145,7 +145,6 @@ const Work = () => {
                 />
               </div>
             </div>
-            {/* // ...existing code... */}
           </motion.div>
         ))}
       </motion.div>

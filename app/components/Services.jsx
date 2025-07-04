@@ -34,10 +34,10 @@ const Services = () => {
         transition={{ duration: 0.5, delay: 0.7 }}
         className="text-center max-w-2xl mx-auto mt-5 mb-12 ovo-font"
       >
-        I'm a full-stack developer with a strong interest in deep learning,
-        cloud computing, and building scalable applications. My expertise
-        includes working with React, Next.js, Node.js, and machine learning,
-        covering areas like computer vision and natural language processing.
+        I'm a full-stack developer with a strong interest in Problem Solving, Deep Learning,
+        Cloud Computing, and building scalable applications. My expertise
+        includes working with React, Next.js, Angular,Node.js, and machine learning,
+        covering areas like computer vision ,natural language processing and Transformers.
       </motion.p>
       <motion.div
         initial={{ opacity: 0 }}
