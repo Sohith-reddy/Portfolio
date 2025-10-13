@@ -43,8 +43,8 @@
 | Category | Technologies & Features |
 |:---------|:----------------------|
 | 🎯 **Frontend** | • Next.js 14<br/>• Tailwind CSS<br/>• Framer Motion |
-| 🛠️ **Backend** | • Node.js<br/>• RESTful APIs<br/>• Web3Forms Integration |
-| ☁️ **Deployment** | • Vercel Platform<br/>• CI/CD Pipeline<br/>• Environment Management |
+| 🛠️ **Backend** | • Spring Boot<br/>• PostgreSQL<br/>• Web3Forms Integration |
+| ☁️ **Deployment** | • Vercel Platform<br/>• CI/CD Pipeline<br/>• Environment Management<br/>• Render<br/>• Docker |
 
 ## 🎯 Key Features
 
