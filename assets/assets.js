@@ -8,6 +8,9 @@ import project_icon from "./project-icon.png";
 import project_icon_dark from "./project-icon-dark.png";
 import vscode from "./vscode.png";
 import firebase from "./firebase.png";
+import angular from "./Angular.png";
+import pytorch from "./Pytorch.png";
+import Springboot from "./Springboot.jpg";
 import figma from "./figma.png";
 import git from "./git.png";
 import mongodb from "./mongodb.png";
@@ -18,7 +21,7 @@ import portfolio_1 from "./portfolio_1.png"
 import logo_dark from "./logo_dark.png";
 import mail_icon from "./mail_icon.png";
 import mail_icon_dark from "./mail_icon_dark.png";
-// import profile_img from "./profile-img.png"; //ddd
+// import profile_img from "./profile-img.png"; 
 import profile_img from "./profile-img_new.png";
 import download_icon from "./download-icon.png";
 import hand_icon from "./hand-icon.png";
@@ -80,6 +83,9 @@ export const assets = {
   send_icon,
   right_arrow_bold,
   right_arrow_bold_dark,
+  angular,
+  pytorch,
+  Springboot
 };
 
 export const workData = [
@@ -162,4 +168,7 @@ export const toolsData = [
   assets.mongodb,
   assets.figma,
   assets.git,
+  assets.angular,
+  assets.pytorch,
+  assets.Springboot,
 ];
