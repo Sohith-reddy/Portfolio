@@ -7,13 +7,13 @@ export async function trackVisit() {
 
     // Get IP and location
     const ipRes = await axios.get("https://api.ipify.org?format=json");
-    const ip = ipRes.data.ip;
+    const ip_address = ipRes.data.ip;
     const locRes = await axios.get(`https://ipapi.co/${ip}/json/`);
     const { city, region, country_name } = locRes.data;
 
     // Prepare payload
     const payload = {
-      ip,
+      ip_address,
       city,
       region,
       country: country_name,
