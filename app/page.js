@@ -11,8 +11,8 @@ import Work from "./components/Work";
 
 export default function Home() {
    useEffect(() => {
-     if (typeof window !== "undefined" && !sessionStorage.getItem("visitTracked")) {
-      sessionStorage.setItem("visitTracked", "1");
+     if (typeof window !== "undefined" && !localStorage.getItem("visitTracked")) {
+      localStorage.setItem("visitTracked", "1");
       trackVisit();
     }
   }, []);
