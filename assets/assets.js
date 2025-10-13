@@ -83,9 +83,9 @@ export const assets = {
   send_icon,
   right_arrow_bold,
   right_arrow_bold_dark,
-  angular,
-  pytorch,
-  Springboot
+  // angular,
+  // pytorch,
+  // Springboot
 };
 
 export const workData = [
@@ -168,7 +168,7 @@ export const toolsData = [
   assets.mongodb,
   assets.figma,
   assets.git,
-  assets.angular,
-  assets.pytorch,
-  assets.Springboot,
+  // assets.angular,
+  // assets.pytorch,
+  // assets.Springboot,
 ];
