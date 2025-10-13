@@ -12,7 +12,7 @@ import Work from "./components/Work";
 export default function Home() {
    useEffect(() => {
      if (typeof window !== "undefined" && !localStorage.getItem("visitTracked")) {
-      localStorage.setItem("visitTracked", JSON.stringify(payload));
+      localStorage.setItem("visitTracked", "1");
       trackVisit();
     }
   }, []);
