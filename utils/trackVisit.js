@@ -23,7 +23,10 @@ export async function trackVisit() {
 
     // Send to backend
     // await axios.post("https://your-render-backend.onrender.com/api/track", payload);
-    await axios.post("https://portfolio-backend-i9ck.onrender.com/api/track", payload);
+    await axios
+      .post("https://portfolio-backend-i9ck.onrender.com/api/track", payload)
+      .then((res) => console.log("Tracked successfully", res.data))
+      .catch((err) => console.error("Tracking error", err));
     // This is the Render backend URL. Replace with your actual backend URL.
   } catch (err) {
     console.error("Error tracking visit:", err);
