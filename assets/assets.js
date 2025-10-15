@@ -157,6 +157,12 @@ export const infoList = [
     title: "Projects",
     description: "Built more than 5 projects in multiple domains",
   },
+  {
+    icon:assets.ui_icon,
+    iconDark: assets.graphics_icon,
+    title:"Job Profile",
+    description:"Currenly working as a Full Stack Developer Intern at Apptmyz Technologies",
+  }
 ];
 
 export const toolsData = [
