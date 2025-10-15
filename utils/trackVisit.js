@@ -13,7 +13,7 @@ export async function trackVisit() {
 
     // Prepare payload
     const payload = {
-      ip_address: ip,
+      ipAddress: ip,
       city,
       region,
       country: country_name,
