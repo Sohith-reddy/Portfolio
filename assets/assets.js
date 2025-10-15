@@ -158,8 +158,8 @@ export const infoList = [
     description: "Built more than 5 projects in multiple domains",
   },
   {
-    icon:assets.ui_icon,
-    iconDark: assets.graphics_icon,
+    icon: assets.project_icon,
+    iconDark: assets.project_icon_dark,
     title:"Job Profile",
     description:"Currenly working as a Full Stack Developer Intern at Apptmyz Technologies",
   }
