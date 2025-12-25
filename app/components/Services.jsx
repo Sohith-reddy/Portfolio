@@ -54,7 +54,7 @@ const Services = () => {
             <Image src={icon} alt="" className="w-10" />
             <h3 className="text-lg my-4 text-gray-700">{title}</h3>
             <p className="text-sm text-gray-600 leading-5">{description}</p>
-            <a href={link} className="flex items-center gap-2 text-sm mt-5">
+            <a href={link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm mt-5">
               Read more
               <Image src={assets.right_arrow} alt="" className="w-4" />
             </a>

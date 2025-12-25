@@ -133,7 +133,7 @@ export const serviceData = [
     icon: assets.web_icon,
     title: "Generative AI",
     description: "Creative GenAI solutions to enhance visual communication...",
-    link: "https://www.github.com/Sohith-reddy",
+    link: "https://smartreviewanalyzer.netlify.app/",
   },
 ];
 
