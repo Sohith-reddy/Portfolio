@@ -102,7 +102,7 @@ export const workData = [
     imageUrl: "/work-3.png",
   },
   {
-    title: "RegBot",
+    title: "Review Summarizer",
     description: "Generative AI",
     imageUrl: "/work-4.png",
   },
@@ -111,8 +111,8 @@ export const workData = [
 export const serviceData = [
   {
     icon: assets.web_icon,
-    title: "Web design",
-    description: "Web development is the process of building, programming...",
+    title: "Machine Learning",
+    description: "Machine Learning involves enabling computers to learn from data and improve their performance over time without being explicitly programmed...",
     link: "https://www.github.com/Sohith-reddy",
   },
   {
@@ -169,7 +169,7 @@ export const toolsData = [
   assets.vscode,
   assets.firebase,
   assets.mongodb,
-  assets.figma,
+  // assets.figma,
   assets.git,
   // assets.angular,
   // assets.pytorch,
