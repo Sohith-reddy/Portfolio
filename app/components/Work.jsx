@@ -142,6 +142,7 @@ const Work = () => {
                     minHeight: "40px",
                   }}
                   title="Click to view project"
+                  href="https://www.github.com/Sohith-reddy/"
                 />
               </div>
             </div>

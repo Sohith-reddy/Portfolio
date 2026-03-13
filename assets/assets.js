@@ -87,7 +87,7 @@ export const assets = {
 
 export const workData = [
   {
-    title: "Frontend project",
+    title: "Shortify",
     description: "Web Design",
     imageUrl: "/work-1.png", // using leading slash and correct filename
   },
@@ -97,12 +97,12 @@ export const workData = [
     imageUrl: "/work-2.png", // updated to work-2.png with leading slash
   },
   {
-    title: "Review Bot",
+    title: "Shortify",
     description: "Full Stack Development",
     imageUrl: "/work-3.png",
   },
   {
-    title: "Review Summarizer",
+    title: "Review Insight and Sentiment Analysis",
     description: "Generative AI",
     imageUrl: "/work-4.png",
   },
