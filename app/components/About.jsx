@@ -1,113 +1,77 @@
+'use client'
 import { assets, infoList, toolsData } from '@/assets/assets'
 import Image from 'next/image'
 import React from 'react'
-import { motion } from "motion/react";
+import Reveal from './Reveal'
 
 const About = () => {
   return (
-    <motion.div
-      id="about"
-      className="w-full px-[12%] py-10 scroll-mt-20"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <motion.h4
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-center mb-2  text-lg ovo-font"
-      >
-        Introduction
-      </motion.h4>
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="text-center text-5xl ovo-font"
-      >
-        About me
-      </motion.h2>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="flex w-full flex-col lg:flex-row items-center gap-20 my-20"
-      >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="w-64 sm:w-80 rounded-3xl max-w-none"
-        >
-          <Image
-            src={assets.user_image}
-            alt="User"
-            className="w-full rounder-3xl"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex-1"
-        >
-          <p className="mb-10 ovo-font max-w-2xl">
-            I am a full stack developer with a passion for deep learning and
-            cloud computing. I have experience in building web applications
-            using React, Next.js, and Node.js. I am also interested in machine
-            learning and have worked on projects involving computer vision and
-            natural language processing. I am currently learning about cloud
-            technologies and looking to build scalable applications using AWS
-            and GCP.
-          </p>
-          <motion.ul
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="grid grid-cols-1 sm:grid-cols-4 gap-6 max-w-2xl"
-          >
-            {infoList.map(({ icon, iconDark, title, description }, index) => (
-              <motion.li
-                whileHover={{ scale: 1.05 }}
-                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-purple-50 hover:-translate-y-1 duration-500 hover:shadow-xl"
-                key={index}
-              >
-                <Image src={icon} alt={title} className="w-7 mt-3" />
-                <h3 className="my-4 font-semibold text-gray-700">{title}</h3>
-                <p className="text-gray-600 text-sm">{description}</p>
-              </motion.li>
-            ))}
-          </motion.ul>
-          <motion.h4
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.3, delay: 0.5 }}
-            className="my-6 text-gray-700 ovo-font"
-          >
-            Tools I Use
-          </motion.h4>
-          <motion.ul
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1.5, delay: 0.6 }}
-            className="flex items-center gap-3 sm:gap-5"
-          >
-            {toolsData.map((tool, index) => (
-              <motion.li
-                // initial={{ opacity: 0 }}
-                whileHover={{ scale: 1.1 }}
-                // transition={{ duration: 0.8, delay: 1 }}
-                className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 "
-                key={index}
-              >
-                <Image src={tool} alt="Tool" className="w-5 sm:w-7" />
-              </motion.li>
-            ))}
-          </motion.ul>
-        </motion.div>
-      </motion.div>
-    </motion.div>
+    <section id="about" className="section-alt py-24 sm:py-32 scroll-mt-12">
+      <div className="apple-container">
+        <Reveal as="p" className="apple-eyebrow text-center">
+          Introduction
+        </Reveal>
+        <Reveal as="h2" delay={0.05} className="apple-headline text-center mt-2">
+          About me.
+        </Reveal>
+        <Reveal as="p" delay={0.1} className="apple-subhead text-center max-w-2xl mx-auto mt-5">
+          A full stack developer building for the web, the cloud, and everything
+          in between.
+        </Reveal>
+
+        <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20 mt-16">
+          <Reveal className="w-64 sm:w-80 shrink-0">
+            <Image
+              src={assets.user_image}
+              alt="Sohith Reddy"
+              className="w-full rounded-[18px]"
+            />
+          </Reveal>
+
+          <Reveal delay={0.1} className="flex-1">
+            <p className="apple-body max-w-2xl">
+              I am a full stack developer with a passion for deep learning and
+              cloud computing. I build web applications using React, Next.js and
+              Node.js, and I have worked on projects spanning computer vision and
+              natural language processing. I'm currently deepening my cloud work
+              across AWS and GCP to build applications that scale.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+              {infoList.map(({ icon, title, description }, index) => (
+                <Reveal
+                  key={index}
+                  delay={0.06 * index}
+                  className="apple-card surface-white p-6"
+                >
+                  <Image src={icon} alt="" className="w-7" />
+                  <h3 className="mt-4 text-[17px] font-semibold tracking-[-0.012em] text-primary">
+                    {title}
+                  </h3>
+                  <p className="mt-1.5 text-[14px] leading-[1.5] text-secondary">
+                    {description}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal as="h3" delay={0.1} className="apple-eyebrow mt-12">
+              Tools I use
+            </Reveal>
+            <Reveal delay={0.15} className="flex items-center gap-3 mt-4">
+              {toolsData.map((tool, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center w-14 aspect-square surface-white rounded-[14px] transition-transform duration-300 hover:-translate-y-1"
+                >
+                  <Image src={tool} alt="" className="w-6" />
+                </div>
+              ))}
+            </Reveal>
+          </Reveal>
+        </div>
+      </div>
+    </section>
   );
 }
 
