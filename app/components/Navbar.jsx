@@ -1,128 +1,179 @@
-import { assets } from "@/assets/assets";
-import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+'use client'
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import ThemeToggle from "./ThemeToggle";
 import styles from "../styles/Navbar.module.css";
 
+const navItems = [
+  { label: "Home", href: "#top" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Work", href: "#work" },
+  { label: "Contact", href: "#contact" },
+];
+
+const socials = [
+  { Icon: FaLinkedin, href: "https://www.linkedin.com/in/sohithreddy/", label: "LinkedIn" },
+  { Icon: SiLeetcode, href: "https://leetcode.com/u/sohith_reddy01/", label: "LeetCode" },
+  { Icon: FaGithub, href: "https://github.com/Sohith-reddy", label: "GitHub" },
+];
+
 const Navbar = () => {
-  const [isScroll, setIsScroll] = useState(false);
-  const sideMenuRef = useRef();
-
-  const openMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(-16rem)";
-  };
-
-  const closeMenu = () => {
-    sideMenuRef.current.style.transform = "translateX(16rem)";
-  };
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("#top");
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) setIsScroll(true);
-      else setIsScroll(false);
+      let current = "top";
+      for (const { href } of navItems) {
+        const el = document.getElementById(href.replace("#", ""));
+        if (el) {
+          const { top, bottom } = el.getBoundingClientRect();
+          if (top <= 100 && bottom > 100) {
+            current = href.replace("#", "");
+            break;
+          }
+        }
+      }
+      setActive(`#${current}`);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll while the mobile sheet is open.
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
     <>
-      {/* Background Layer */}
-      <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
-        <Image src={assets.header_bg_color} alt="" className="w-full" />
-      </div>
+      <header className="fixed top-0 inset-x-0 z-[1000] apple-nav-blur">
+        <nav className="apple-container flex items-center justify-between h-12">
+          <a
+            href="#top"
+            className="text-[15px] font-semibold tracking-[-0.01em] text-primary hover:opacity-70 transition-opacity"
+          >
+            Sohith Reddy
+          </a>
 
-      {/* Navbar */}
-      <nav
-        className={`w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-[1000] transition-all duration-300 ${
-          isScroll ? "bg-white/50 backdrop-blur-lg shadow-md" : "bg-transparent"
-        }`}
-      >
-        {/* Logo */}
-        <a href="#top">
-          <Image
-            src={assets.portfolio_1}
-            alt="Logo"
-            className="w-28 cursor-pointer"
-          />
-        </a>
-        {/* Desktop Navigation */}
-        <ul
-          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
-            isScroll ? "" : "bg-white shadow-sm bg-opacity-55"
-          }`}
-        >
-          {["Home", "About Me", "Services", "My Work", "Contact Me"].map(
-            (item, index) => (
-              <li key={index} className={styles.navItem}>
+          <ul className="hidden md:flex items-center gap-8">
+            {navItems.map(({ label, href }) => (
+              <li key={href}>
                 <a
-                  className={`ovo-font relative overflow-hidden ${styles.navLink}`}
-                  href={`#${item.toLowerCase().replace(" ", "")}`}
+                  href={href}
+                  className={`text-xs tracking-[-0.01em] transition-opacity hover:opacity-100 ${
+                    active === href
+                      ? "text-primary opacity-100 font-medium"
+                      : "text-primary opacity-80"
+                  }`}
                 >
-                  {item}
+                  {label}
                 </a>
               </li>
-            )
-          )}
-        </ul>
-        {/* Right Side Icons */}
-        <div className="flex items-center gap-4">
-          <a
-            href="#contact"
-            className={`hidden lg:flex justify-center items-center px-12 py-2 border border-gray-500 rounded-full ml-4 
-    group relative overflow-hidden
-    transform transition-all duration-300 ease-in-out
-    hover:scale-105 hover:bg-white hover:border-transparent
-    ${isScroll ? "shadow-md" : ""} ${styles.contactLink}`}
-            style={{ minWidth: "110px" }} // Reduced width
-          >
-            <span className="relative z-10 group-hover:text-gray-800 text-center w-full transition-colors duration-300">
-              Contact
-            </span>
-          </a>
-          <button className="block md:hidden ml-3" onClick={openMenu}>
-            <Image src={assets.menu_black} alt="Menu" className="w-6" />
-          </button>
-        </div>
-        {/* Mobile Menu */}
-        <ul
-          ref={sideMenuRef}
-          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 h-screen w-64 z-50 bg-rose-50 transition duration-500"
-        >
-          <div className="absolute right-6 top-6" onClick={closeMenu}>
-            <Image
-              src={assets.close_black}
-              alt="Close"
-              className="w-5 cursor-pointer"
-            />
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-5">
+            <div className="hidden md:flex items-center gap-4">
+              {socials.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-primary opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <Icon className="w-[15px] h-[15px]" />
+                </a>
+              ))}
+            </div>
+
+            <ThemeToggle className="w-[17px] h-[17px]" />
+
+            <button
+              className={`md:hidden flex flex-col justify-center gap-[5px] w-6 h-6 ${styles.menuButton}`}
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              <span
+                className={`block h-[1.5px] w-[17px] bg-primary transition-transform duration-300 ${
+                  menuOpen ? "translate-y-[3.25px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-[1.5px] w-[17px] bg-primary transition-transform duration-300 ${
+                  menuOpen ? "-translate-y-[3.25px] -rotate-45" : ""
+                }`}
+              />
+            </button>
           </div>
-          <li>
-            <a href="#top" onClick={closeMenu}>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#about" onClick={closeMenu}>
-              About Me
-            </a>
-          </li>
-          <li>
-            <a href="#work" onClick={closeMenu}>
-              My Work
-            </a>
-          </li>
-          <li>
-            <a href="#services" onClick={closeMenu}>
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#contact" onClick={closeMenu}>
-              Contact Me
-            </a>
-          </li>
-        </ul>
-      </nav>
+        </nav>
+      </header>
+
+      {/* Apple's mobile menu slides down as a full frosted sheet */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              // Set inline so the sheet is reliably opaque: page content must
+              // never bleed through the menu links. The token keeps it
+              // theme-aware.
+              background: "var(--apple-sheet-bg)",
+              backdropFilter: "saturate(180%) blur(20px)",
+              WebkitBackdropFilter: "saturate(180%) blur(20px)",
+            }}
+            className="fixed inset-0 top-12 z-[999] md:hidden"
+          >
+            <ul className="apple-container pt-6">
+              {navItems.map(({ label, href }, i) => (
+                <motion.li
+                  key={href}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.05 * i, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="border-b border-apple"
+                >
+                  <a
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-4 text-2xl font-semibold tracking-[-0.02em] text-primary"
+                  >
+                    {label}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+            <div className="apple-container flex items-center gap-6 pt-8">
+              {socials.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-primary opacity-70 hover:opacity-100 transition-opacity"
+                >
+                  <Icon className="w-6 h-6" />
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

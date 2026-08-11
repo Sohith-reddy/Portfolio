@@ -143,7 +143,7 @@ export const infoList = [
     iconDark: assets.code_icon_dark,
     title: "Languages",
     description:
-      "C/C++, Python, Java, HTML, CSS, JavaScript, React Js, Next Js, SQL, MongoDB ,Flutter",
+      "Python, Java, JavaScript, React Js, Next Js, Angular, SpringBoot, SQL, MongoDB ,Flutter, Docker, Kubernetes",
   },
   {
     icon: assets.edu_icon,
@@ -161,7 +161,7 @@ export const infoList = [
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
     title:"Job Profile",
-    description:"Currenly working as a Full Stack Developer Intern at Apptmyz Technologies",
+    description:"Currenly working as a Software Engineer - 1 at Apptmyz Technologies",
   }
 ];
 
