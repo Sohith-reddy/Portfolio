@@ -8,7 +8,7 @@ const Header = () => {
     <div className="w-11/12 max-w-4xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 pt-20">
       {/* Changed h-screen to min-h-screen and added pt-20 for navbar spacing */}
       <motion.div
-        initial={{ scale: 0 }}
+        initial={{ scale: 0 }} 
         whileInView={{ scale: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
       >
