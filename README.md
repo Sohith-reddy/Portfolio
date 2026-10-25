@@ -88,7 +88,7 @@ Copy `.env.example` to `.env.local` (or set it in the Vercel project settings):
 ```env
 # Base URL of the deployed Portfolio-Backend service, without a trailing slash.
 # When unset, visit tracking is disabled.
-NEXT_PUBLIC_API_URL=https://portfolio-backend.onrender.com
+NEXT_PUBLIC_API_URL=https://portfolio-backend-xxxxxxxxxx-el.a.run.app
 ```
 
 Visits are sent once per browser session to `POST {NEXT_PUBLIC_API_URL}/api/track`.
