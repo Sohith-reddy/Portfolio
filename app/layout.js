@@ -13,8 +13,9 @@ const ovo = OvoFont({
 
 
 export const metadata = {
-  title: "Sohith's Portfolio",
-  description: "",
+  title: "Sohith Reddy | Software Engineer",
+  description:
+    "Portfolio of B.R. Sohith Kumar Reddy — Software Engineer building Spring Boot, PostgreSQL and Redis backends, distributed systems and production RAG/LLM features.",
 };
 
 export default function RootLayout({ children }) {

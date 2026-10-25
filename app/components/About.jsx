@@ -43,7 +43,7 @@ const About = () => {
           <Image
             src={assets.user_image}
             alt="User"
-            className="w-full rounder-3xl"
+            className="w-full rounded-3xl"
           />
         </motion.div>
         <motion.div
@@ -53,13 +53,13 @@ const About = () => {
           className="flex-1"
         >
           <p className="mb-10 ovo-font max-w-2xl">
-            I am a full stack developer with a passion for deep learning and
-            cloud computing. I have experience in building web applications
-            using React, Next.js, and Node.js. I am also interested in machine
-            learning and have worked on projects involving computer vision and
-            natural language processing. I am currently learning about cloud
-            technologies and looking to build scalable applications using AWS
-            and GCP.
+            I&apos;m a Software Engineer at Apptmyz, building the backend of a
+            B2B logistics SaaS platform with Spring Boot, Java, PostgreSQL and
+            Redis behind workflows that process 10K+ transactions a day. I&apos;m
+            strongest on the performance side — taking APIs from 1.8s to 600ms
+            and cutting peak CPU by 38% — and I ship RAG/LLM features to
+            production where they genuinely help. Outside work I&apos;ve solved
+            1100+ LeetCode problems at an 1800+ contest rating.
           </p>
           <motion.ul
             initial={{ opacity: 0 }}
@@ -85,23 +85,28 @@ const About = () => {
             transition={{ duration: 1.3, delay: 0.5 }}
             className="my-6 text-gray-700 ovo-font"
           >
-            Tools I Use
+            Tech Stack
           </motion.h4>
           <motion.ul
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.6 }}
-            className="flex items-center gap-3 sm:gap-5"
+            className="flex flex-wrap items-center gap-3 sm:gap-5 max-w-2xl"
           >
-            {toolsData.map((tool, index) => (
+            {toolsData.map(({ icon: Icon, name, color }, index) => (
               <motion.li
                 // initial={{ opacity: 0 }}
                 whileHover={{ scale: 1.1 }}
                 // transition={{ duration: 0.8, delay: 1 }}
                 className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 "
                 key={index}
+                title={name}
               >
-                <Image src={tool} alt="Tool" className="w-5 sm:w-7" />
+                <Icon
+                  aria-label={name}
+                  className="w-5 h-5 sm:w-7 sm:h-7"
+                  style={{ color }}
+                />
               </motion.li>
             ))}
           </motion.ul>

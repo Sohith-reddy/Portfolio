@@ -3,6 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/Navbar.module.css";
 
+const navLinks = [
+  { label: "Home", href: "#top" },
+  { label: "About Me", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Services", href: "#services" },
+  { label: "My Work", href: "#work" },
+  { label: "Contact Me", href: "#contact" },
+];
+
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const sideMenuRef = useRef();
@@ -52,18 +61,16 @@ const Navbar = () => {
             isScroll ? "" : "bg-white shadow-sm bg-opacity-55"
           }`}
         >
-          {["Home", "About Me", "Services", "My Work", "Contact Me"].map(
-            (item, index) => (
-              <li key={index} className={styles.navItem}>
-                <a
-                  className={`ovo-font relative overflow-hidden ${styles.navLink}`}
-                  href={`#${item.toLowerCase().replace(" ", "")}`}
-                >
-                  {item}
-                </a>
-              </li>
-            )
-          )}
+          {navLinks.map(({ label, href }, index) => (
+            <li key={index} className={styles.navItem}>
+              <a
+                className={`ovo-font relative overflow-hidden ${styles.navLink}`}
+                href={href}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
         {/* Right Side Icons */}
         <div className="flex items-center gap-4">
@@ -96,31 +103,13 @@ const Navbar = () => {
               className="w-5 cursor-pointer"
             />
           </div>
-          <li>
-            <a href="#top" onClick={closeMenu}>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#about" onClick={closeMenu}>
-              About Me
-            </a>
-          </li>
-          <li>
-            <a href="#work" onClick={closeMenu}>
-              My Work
-            </a>
-          </li>
-          <li>
-            <a href="#services" onClick={closeMenu}>
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="#contact" onClick={closeMenu}>
-              Contact Me
-            </a>
-          </li>
+          {navLinks.map(({ label, href }, index) => (
+            <li key={index}>
+              <a href={href} onClick={closeMenu}>
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </>

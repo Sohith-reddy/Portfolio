@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 const Header = () => {
   return (
-    <div className="w-11/12 max-w-4xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 pt-20">
+    <div id="top" className="w-11/12 max-w-4xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 pt-20">
       {/* Changed h-screen to min-h-screen and added pt-20 for navbar spacing */}
       <motion.div
         initial={{ scale: 0 }}
@@ -34,7 +34,7 @@ const Header = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="text-3xl sm:text-6xl lg:text-[66px] ovo-font"
       >
-        Full Stack Developer, Deep Learning & Cloud Enthusiast
+        Software Engineer building fast, scalable backends
       </motion.h1>
       <motion.p
         initial={{ opacity: 0 }}
@@ -42,10 +42,9 @@ const Header = () => {
         transition={{ duration: 0.6, delay: 0.7 }}
         className="max-w-1xl mx-auto ovo-font"
       >
-        I'm a full-stack developer passionate about deep learning, cloud
-        computing, and scalable applications. I have experience with React,
-        Angular, Node.js, and machine learning, including computer vision and
-        NLP along with transformers.
+        SDE-1 at Apptmyz working on Spring Boot, PostgreSQL and Redis systems
+        that handle 10K+ transactions daily — with a focus on performance,
+        distributed systems and pragmatic AI.
       </motion.p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 w-full max-w-md mx-auto">
         <motion.a
@@ -75,6 +74,4 @@ const Header = () => {
     </div>
   );
 }
-// assets\public\Resume.pdf
-
 export default Header;

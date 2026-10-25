@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { trackVisit } from "@/utils/trackVisit";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -19,8 +20,9 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <Header /> 
+      <Header />
       <About />
+      <Experience />
       <Services />
       <Work />
       <Contact />

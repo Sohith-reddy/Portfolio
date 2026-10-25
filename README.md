@@ -42,8 +42,8 @@
 
 | Category | Technologies & Features |
 |:---------|:----------------------|
-| 🎯 **Frontend** | • Next.js 14<br/>• Tailwind CSS<br/>• Framer Motion |
-| 🛠️ **Backend** | • Node.js<br/>• RESTful APIs<br/>• Web3Forms Integration |
+| 🎯 **Frontend** | • Next.js 15<br/>• Tailwind CSS 4<br/>• Motion<br/>• React Icons |
+| 🛠️ **Backend** | • [Spring Boot visit tracker](https://github.com/Sohith-reddy/Portfolio-Backend)<br/>• PostgreSQL<br/>• Web3Forms Integration |
 | ☁️ **Deployment** | • Vercel Platform<br/>• CI/CD Pipeline<br/>• Environment Management |
 
 ## 🎯 Key Features
@@ -83,12 +83,16 @@ npm run dev
 
 ## 🔗 Environment Variables
 
-Create a `.env.local` file with:
+Copy `.env.example` to `.env.local` (or set it in the Vercel project settings):
 
 ```env
-NEXT_PUBLIC_WEB3FORMS_KEY=your_api_key
-NEXT_PUBLIC_VERCEL_URL=your_vercel_url
+# Base URL of the deployed Portfolio-Backend service, without a trailing slash.
+# When unset, visit tracking is disabled.
+NEXT_PUBLIC_API_URL=https://portfolio-backend.onrender.com
 ```
+
+Visits are sent once per browser session to `POST {NEXT_PUBLIC_API_URL}/api/track`.
+Append `?ref=<name>` to the site URL to tag visits from a specific link (for example, a job application).
 
 ## 📬 API Integration
 

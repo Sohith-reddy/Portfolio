@@ -1,3 +1,32 @@
+import {
+  FaAws,
+  FaBolt,
+  FaBrain,
+  FaCloud,
+  FaGraduationCap,
+  FaJava,
+  FaServer,
+  FaTrophy,
+} from "react-icons/fa";
+import {
+  SiAngular,
+  SiDocker,
+  SiFastapi,
+  SiGit,
+  SiGithubactions,
+  SiGooglecloud,
+  SiJenkins,
+  SiKubernetes,
+  SiLangchain,
+  SiLeetcode,
+  SiMongodb,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiRedis,
+  SiSpringboot,
+  SiTypescript,
+} from "react-icons/si";
 // import user_image1 from "./user-image.png";
 import user_image from "./user-image_new.png"
 import code_icon from "./code-icon.png";
@@ -84,53 +113,70 @@ export const assets = {
 
 export const workData = [
   {
-    title: "Frontend project",
-    description: "Web Design",
-    imageUrl: "/work-1.png", // using leading slash and correct filename
+    title: "Shortify",
+    description: "Spring Boot · Angular · PostgreSQL",
+    summary:
+      "Bitly-style URL shortener with collision-safe codes, link expiry and per-link click analytics.",
+    imageUrl: "/projects/shortify.svg",
+    github: "https://github.com/Sohith-reddy/Shortify",
+    live: "https://shortify-zeta.vercel.app/",
   },
   {
-    title: "Weather App",
-    description: "Mobile App",
-    imageUrl: "/work-2.png", // updated to work-2.png with leading slash
+    title: "Review Insight",
+    description: "React · Express · Llama 3.1 · RAG",
+    summary:
+      "Grounds Llama-3.1 in FAISS retrieval to summarize e-commerce reviews with 30% better factual accuracy.",
+    imageUrl: "/projects/review-insight.svg",
+    github: "https://github.com/Sohith-reddy/ReviewSummarizer-SmartInsights",
+    live: "https://smartreviewanalyzer.netlify.app/",
   },
   {
-    title: "Review Bot",
-    description: "Full Stack Development",
-    imageUrl: "/work-3.png",
+    title: "JobLens AI",
+    description: "React · FastAPI · Scikit-learn · Groq",
+    summary:
+      "Flags fraudulent job postings and scores resume-job fit with embeddings and an LLM explanation layer.",
+    imageUrl: "/projects/joblens.svg",
+    github: "https://github.com/Sohith-reddy/JobLens",
+    live: "https://job-lens-pgtl.vercel.app/",
   },
   {
-    title: "RegBot",
-    description: "Generative AI",
-    imageUrl: "/work-4.png",
+    title: "Ginger",
+    description: "Java 21 · Maven · JUnit 5",
+    summary:
+      "Git-inspired version control system with SHA-256 object storage, branches and three-way merges.",
+    imageUrl: "/projects/ginger.svg",
+    github: "https://github.com/Sohith-reddy/Ginger",
   },
 ];
 
 export const serviceData = [
   {
-    icon: assets.web_icon,
-    title: "Web design",
-    description: "Web development is the process of building, programming...",
-    link: "https://www.github.com/Sohith-reddy",
-  },
-  {
-    icon: assets.mobile_icon,
-    title: "Mobile app",
+    icon: FaServer,
+    title: "Backend Engineering",
     description:
-      "Mobile app development involves creating software for mobile devices...",
-    link: "https://www.github.com/Sohith-reddy",
+      "Production REST APIs on Spring Boot, FastAPI and Express, backed by PostgreSQL, MySQL, MongoDB and Redis.",
+    link: "https://github.com/Sohith-reddy/Shortify",
   },
   {
-    icon: assets.ui_icon,
-    title: "Full Stack Development",
+    icon: FaBolt,
+    title: "Performance & Scale",
     description:
-      "Full Stack Development focuses on creating a seamless user experience...",
+      "Indexing, pagination, caching and query tuning that took APIs from 1.8s to 600ms and cut peak CPU by 38%.",
     link: "https://www.github.com/Sohith-reddy",
   },
   {
-    icon: assets.web_icon,
-    title: "Generative AI",
-    description: "Creative GenAI solutions to enhance visual communication...",
-    link: "https://www.github.com/Sohith-reddy",
+    icon: FaCloud,
+    title: "Cloud & DevOps",
+    description:
+      "Dockerized services shipped through Jenkins and GitHub Actions CI/CD to AWS and GCP.",
+    link: "https://github.com/Sohith-reddy/Portfolio-Backend",
+  },
+  {
+    icon: FaBrain,
+    title: "AI & LLM Features",
+    description:
+      "RAG pipelines with LangChain, FAISS and SentenceTransformers, shipped where they genuinely help.",
+    link: "https://github.com/Sohith-reddy/ReviewSummarizer-SmartInsights",
   },
 ];
 
@@ -139,27 +185,89 @@ export const infoList = [
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
     title: "Languages",
-    description:
-      "C/C++, Python, Java, HTML, CSS, JavaScript, React Js, Next Js, SQL, MongoDB ,Flutter",
+    description: "Java, Python, JavaScript, TypeScript, SQL",
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
     title: "Education",
-    description: "B.Tech in Information Technology",
+    description: "B.Tech in IT, KMIT (2022 – 2026) · CGPA 9.0",
   },
   {
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
-    title: "Projects",
-    description: "Built more than 5 projects in multiple domains",
+    title: "Experience",
+    description: "SDE-1 at Apptmyz, building a B2B logistics SaaS platform",
+  },
+];
+
+export const experienceData = [
+  {
+    role: "Software Engineer (SDE-1)",
+    company: "Apptmyz",
+    period: "June 2026 – Present",
+    points: [
+      "Own end-to-end delivery of logistics modules on Spring Boot, Angular, PostgreSQL and Redis — 10K+ transactions/day.",
+      "Cut API latency 1.8s → 600ms and raised throughput 45% via targeted indexing, pagination and Redis caching.",
+      "Engineered real-time dispatch tracking over WebSockets with async processing, giving ops live delivery status.",
+      "Reduced peak CPU 38% under load testing through batched writes, tuned SQL execution plans and profiled slow paths.",
+    ],
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Apptmyz",
+    period: "June 2025 – May 2026",
+    points: [
+      "Built Spring Boot REST APIs over PostgreSQL for core logistics workflows, sustaining 99.9% uptime in production.",
+      "Cut API response times 40% by adding caching and rewriting the expensive queries behind the slowest endpoints.",
+      "Improved Angular page load time 35% on customer-facing modules.",
+      "Shipped a hybrid RAG + rule-based chatbot into enterprise workflows.",
+      "Maintained Docker-based CI/CD pipelines deploying to AWS in Agile sprints.",
+    ],
+  },
+];
+
+export const achievementData = [
+  {
+    icon: SiLeetcode,
+    title: "1100+ LeetCode problems",
+    description: "1800+ contest rating (Top 8%)",
+  },
+  {
+    icon: FaGraduationCap,
+    title: "Top 0.5% academically",
+    description: "CGPA of 9.0 in B.Tech IT",
+  },
+  {
+    icon: FaBrain,
+    title: "Amazon ML Summer School",
+    description: "Selected trainee — advanced ML and transformers",
+  },
+  {
+    icon: FaTrophy,
+    title: "NPTEL Certifications",
+    description:
+      "IIT Madras — Silver (Python), Gold (Deep Learning); IIT Kharagpur — Silver (Cloud Computing)",
   },
 ];
 
 export const toolsData = [
-  assets.vscode,
-  assets.firebase,
-  assets.mongodb,
-  assets.figma,
-  assets.git,
+  { icon: FaJava, name: "Java", color: "#E76F00" },
+  { icon: SiSpringboot, name: "Spring Boot", color: "#6DB33F" },
+  { icon: SiPython, name: "Python", color: "#3776AB" },
+  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: SiAngular, name: "Angular", color: "#DD0031" },
+  { icon: SiReact, name: "React", color: "#61DAFB" },
+  { icon: SiFastapi, name: "FastAPI", color: "#009688" },
+  { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
+  { icon: SiRedis, name: "Redis", color: "#DC382D" },
+  { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+  { icon: SiDocker, name: "Docker", color: "#2496ED" },
+  { icon: SiKubernetes, name: "Kubernetes", color: "#326CE5" },
+  { icon: FaAws, name: "AWS", color: "#FF9900" },
+  { icon: SiGooglecloud, name: "GCP", color: "#4285F4" },
+  { icon: SiJenkins, name: "Jenkins", color: "#D24939" },
+  { icon: SiGithubactions, name: "GitHub Actions", color: "#2088FF" },
+  { icon: SiLangchain, name: "LangChain", color: "#1C3C3C" },
+  { icon: SiGit, name: "Git", color: "#F05032" },
 ];

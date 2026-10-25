@@ -1,29 +1,29 @@
 import axios from "axios";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export async function trackVisit() {
+  if (!API_URL) return;
+
   try {
     const params = new URLSearchParams(window.location.search);
     const ref = params.get("ref") || params.get("track");
 
-    // Get IP and location
-    const ipRes = await axios.get("https://api.ipify.org?format=json");
-    const ip = ipRes.data.ip;
-    const locRes = await axios.get(`https://ipapi.co/${ip}/json/`);
-    const { city, region, country_name } = locRes.data;
+    // Approximate location of the visitor; the backend records the IP itself.
+    let location = {};
+    try {
+      const { data } = await axios.get("https://ipapi.co/json/", { timeout: 3000 });
+      location = { city: data.city, region: data.region, country: data.country_name };
+    } catch {
+      // Location is optional, still record the visit.
+    }
 
-    // Prepare payload
-    const payload = {
-      ip,
-      city,
-      region,
-      country: country_name,
-      timestamp: new Date().toISOString(),
+    await axios.post(`${API_URL.replace(/\/$/, "")}/api/track`, {
+      ...location,
       ref: ref || "unknown", // recruiter identifier
-    };
-
-    // Send to backend
-    await axios.post("https://your-render-backend.onrender.com/api/track", payload);
-    // This is the Render backend URL. Replace with your actual backend URL.
+      page: window.location.pathname,
+      referrer: document.referrer || null,
+    });
   } catch (err) {
     console.error("Error tracking visit:", err);
   }

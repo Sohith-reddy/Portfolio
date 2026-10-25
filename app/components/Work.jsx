@@ -1,69 +1,8 @@
-// import { assets, workData } from "@/assets/assets";
-// import Image from "next/image";
-// import React from "react";
-
-// const Work = () => {
-//   return (
-//     <div id="work" className="w-full px-[12%] py-10 scroll-mt-20">
-//       <h4 className="text-center mb-2 text-lg ovo-font">My Portfolio</h4>
-//       <h2 className="text-center text-5xl ovo-font">My Latest Work</h2>
-//       <p className="text-center max-w-2xl mx-auto mt-5 mb-12 ovo-font">
-//         Welcome to my Development portfolio! I specialize in programming, cloud
-//         computing, AI, and web development, with expertise in Python, C, Java,
-//         and Flutter. With certifications in AWS and Google Cloud, I also have a
-//         strong foundation in AI, data science, and responsive web design.
-//         Explore my work and journey through technology and innovation!
-//       </p>
-//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-//         {workData.map((project, index) => (
-//           <div
-//             key={index}
-//             className="relative border rounded-lg overflow-hidden shadow-lg h-56"
-//           >
-//             {/* Background Image */}
-//             <div className="relative w-full h-full">
-//               <Image
-//                 src={project.imageUrl}
-//                 alt={project.title}
-//                 fill
-//                 className="object-cover"
-//               />
-//             </div>
-//             {/* Overlay Text */}
-//             <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-//               <h2 className="text-lg font-bold text-white drop-shadow">
-//                 {project.title}
-//               </h2>
-//               <p className="text-sm text-white drop-shadow">
-//                 {project.description}
-//               </p>
-//               <div className="flex justify-end mt-2">
-//                 <Image
-//                   src={assets.send_icon}
-//                   alt="send-icon"
-//                   width={20}
-//                   height={20}
-//                   className="w-5 cursor-pointer"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//       <div className="flex justify-center mt-8">
-//         <button className="px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">
-//           Show more →
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Work;
 import { assets, workData } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const Work = () => {
   return (
@@ -96,11 +35,9 @@ const Work = () => {
         transition={{ duration: 0.5, delay: 0.7 }}
         className="text-center max-w-2xl mx-auto mt-5 mb-12 ovo-font"
       >
-        Welcome to my Development portfolio! I specialize in programming, cloud
-        computing, AI, and web development, with expertise in Python, C++,
-        Java, JavaScript and Dart. With certifications in AWS and NPTEL, I also
-        have a strong foundation in AI, data science, and responsive web design.
-        Explore my work and journey through technology and innovation!
+        A selection of the projects pinned on my GitHub — backend services,
+        RAG pipelines and systems tooling. Hover over a card for details and
+        links to the code and live demo.
       </motion.p>
       <motion.div
         initial={{ opacity: 0 }}
@@ -110,26 +47,55 @@ const Work = () => {
       >
         {workData.map((project, index) => (
           <motion.div
-            // initial={{ y: -20, opacity: 0 }}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             key={index}
             style={{ backgroundImage: `url('${project.imageUrl}')` }}
             className="relative border rounded-lg overflow-hidden shadow-lg aspect-square bg-no-repeat bg-cover bg-center cursor-pointer group"
           >
-            {/* // ...existing code... */}
-            <div className="bg-white w-10/12 rounded-mg absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+            {/* Hover details */}
+            <div className="absolute inset-0 bg-black/75 text-white p-5 flex flex-col gap-4 opacity-0 group-hover:opacity-100 focus-within:opacity-100 duration-500">
+              <p className="text-sm leading-6">{project.summary}</p>
+              <div className="flex items-center gap-5 text-sm">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:underline"
+                >
+                  <FaGithub className="w-4 h-4" /> Code
+                </a>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:underline"
+                  >
+                    <FaExternalLinkAlt className="w-3 h-3" /> Live
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7">
               <div>
                 <h2 className="font-semibold">{project.title}</h2>
-                <p className="text-sm text-gray-700">{project.description}</p>
+                <p className="text-sm text-gray-700 leading-5">
+                  {project.description}
+                </p>
               </div>
-              <div className="group/icon">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/icon shrink-0 ml-2"
+              >
                 <Image
                   src={assets.right_arrow_bold}
                   alt="View Project"
                   width={24}
                   height={24}
-                  className="rounded-full p-2.5 
+                  className="rounded-full p-2.5
         flex items-center justify-center
         border border-gray-300
         hover:border-transparent
@@ -143,7 +109,7 @@ const Work = () => {
                   }}
                   title="Click to view project"
                 />
-              </div>
+              </a>
             </div>
           </motion.div>
         ))}
@@ -153,6 +119,8 @@ const Work = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1.1 }}
         href="https://www.github.com/Sohith-reddy/"
+        target="_blank"
+        rel="noopener noreferrer"
         className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-purple-100 duration-500"
       >
         Show More
