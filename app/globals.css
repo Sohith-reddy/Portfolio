@@ -15,7 +15,7 @@
   --apple-surface-sunken: #f5f5f7;
   --apple-card-on-alt: #ffffff;
   --apple-card-on-base: #f5f5f7;
-  --apple-card-border: transparent;
+  --apple-card-border: rgba(0, 0, 0, 0.06);
   --apple-blue: #0071e3;
   --apple-blue-hover: #0077ed;
   --apple-border: #d2d2d7;
@@ -130,6 +130,7 @@ body {
 /* --- Apple typography scale -------------------------------------- */
 /* Apple's display type is large, heavy and tightly tracked. */
 .apple-hero {
+  text-wrap: balance;
   font-size: clamp(2.75rem, 7vw, 5.5rem);
   line-height: 1.05;
   font-weight: 600;
@@ -137,6 +138,7 @@ body {
 }
 
 .apple-headline {
+  text-wrap: balance;
   font-size: clamp(2rem, 4.5vw, 3.5rem);
   line-height: 1.08;
   font-weight: 600;
@@ -144,6 +146,7 @@ body {
 }
 
 .apple-subhead {
+  text-wrap: balance;
   font-size: clamp(1.125rem, 1.8vw, 1.5rem);
   line-height: 1.4;
   font-weight: 400;
@@ -246,7 +249,7 @@ body {
    the plain page. Each maps to a token that stays one step apart from its
    well in both themes, so a card never disappears into its background. */
 .surface-white {
-  background: var(--apple-card-on-alt);
+  background: var(--apple-card-on-base);
   border: 1px solid var(--apple-card-border);
 }
 .surface-grey {
@@ -262,10 +265,11 @@ body {
   border-bottom: 1px solid var(--apple-nav-border);
 }
 
-/* Section wells alternate white / #f5f5f7 like apple.com. Slightly
-   translucent so the 3D background still reads through behind the cards. */
+/* One continuous page background behind every section, so the 3D scene
+   reads as a single uniform layer. The class is kept as a hook for the
+   section rhythm; cards carry the contrast instead of alternating bands. */
 .section-alt {
-  background: color-mix(in srgb, var(--apple-bg-alt) 86%, transparent);
+  background: transparent;
 }
 
 /* Apple keeps content in a ~980px well with generous gutters */
@@ -620,7 +624,7 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--apple-bg-alt);
+  background: var(--apple-bg);
   border: 2px solid var(--apple-blue);
 }
 .timeline-dot.is-current {

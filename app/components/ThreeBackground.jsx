@@ -111,11 +111,22 @@ const ThreeBackground = () => {
       root.add(lines);
 
       /* ---------------- Wireframe core ---------------- */
+      // The core lives outside `root`, so the network's parallax never swings
+      // it across the hero copy; it only gets its own gentle tilt.
       const core = new THREE.Group();
       // Sits off to the right of the hero copy on desktop, above it on mobile.
-      const coreBase = { x: isSmall ? 0 : 23, y: isSmall ? 10 : 5 };
+      const coreBase = { x: 0, y: isSmall ? 10 : 5 };
+      // Keep the core in the right-hand margin at any aspect ratio: 74% of
+      // the half-width visible at the core's depth (camera z 32, core z -4).
+      const placeCore = () => {
+        if (isSmall) return;
+        const halfH = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * 36;
+        coreBase.x = halfH * camera.aspect * 0.74;
+        core.position.x = coreBase.x;
+      };
       core.position.set(coreBase.x, coreBase.y, -4);
-      root.add(core);
+      scene.add(core);
+      placeCore();
 
       const icoGeo = new THREE.IcosahedronGeometry(isSmall ? 4.2 : 6, 1);
       const icoMat = new THREE.MeshBasicMaterial({ wireframe: true, transparent: true });
@@ -202,6 +213,7 @@ const ThreeBackground = () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        placeCore();
         if (reduceMotion) render(0);
       };
       window.addEventListener("resize", onResize);
@@ -254,8 +266,11 @@ const ThreeBackground = () => {
         updateLinks();
         pointer.x += (pointer.tx - pointer.x) * 0.04;
         pointer.y += (pointer.ty - pointer.y) * 0.04;
-        root.rotation.y = pointer.x * 0.12 + t * 0.00002;
+        // Parallax only, no accumulating spin, so the layout stays put.
+        root.rotation.y = pointer.x * 0.12;
         root.rotation.x = pointer.y * 0.08;
+        core.rotation.y = pointer.x * 0.25;
+        core.rotation.x = pointer.y * 0.15;
         ico.rotation.x = t * 0.00012;
         ico.rotation.y = t * 0.00018;
         ring.rotation.z = t * 0.0001;

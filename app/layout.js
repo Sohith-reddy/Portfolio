@@ -22,8 +22,28 @@ export const metadata = {
     description:
       "Backend systems that scale: Spring Boot, Java, PostgreSQL, Redis — plus RAG/LLM features where they genuinely help.",
     url: "https://www.sohithreddy.dev",
+    siteName: "Sohith Reddy",
+    locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sohith Reddy — Software Engineer",
+    description: "Backend systems that scale: Spring Boot, Java, PostgreSQL, Redis.",
+  },
+  authors: [{ name: "Sohith Reddy", url: "https://www.sohithreddy.dev" }],
+  keywords: ["Sohith Reddy", "Software Engineer", "Backend", "Spring Boot", "Java", "PostgreSQL", "Redis", "Portfolio"],
+  alternates: { canonical: "/" },
+  // Favicon, apple-touch icon and social preview images are served by the
+  // file conventions in this folder: favicon.ico, icon.png, apple-icon.png,
+  // opengraph-image.png and twitter-image.png.
+};
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 // Runs before first paint so the saved theme is applied with no flash of
