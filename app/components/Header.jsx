@@ -28,7 +28,7 @@ const Header = () => {
       id="top"
       className="min-h-screen flex flex-col items-center justify-center text-center pt-24 pb-16"
     >
-      <div className="apple-container flex flex-col items-center">
+      <div className="apple-container hero-container flex flex-col items-center">
         <motion.div variants={rise} initial="hidden" animate="show" custom={0} className="relative mb-8">
           <span className="avatar-glow" aria-hidden="true" />
           <Image
@@ -55,12 +55,12 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={2}
-          className="apple-hero max-w-5xl"
+          className="apple-hero hero-title"
         >
-          {/* Separate blocks so each line balances on its own instead of
-              leaving "scale." stranded on a third line. */}
+          {/* Two blocks: on wide screens each line stays whole; on narrow
+              screens each one wraps and balances on its own. */}
           <span className="block">Hi, I&apos;m Sohith.</span>
-          <span className="block">
+          <span className="block hero-title-line">
             <span className="apple-gradient-text">I build systems that scale.</span>
           </span>
         </motion.h1>
@@ -70,7 +70,7 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={3}
-          className="apple-subhead max-w-2xl mt-6"
+          className="apple-subhead max-w-3xl mt-6"
         >
           Backend engineer on a B2B logistics SaaS platform&nbsp;— Spring Boot, Java,
           PostgreSQL and Redis behind workflows processing 10K+ transactions a

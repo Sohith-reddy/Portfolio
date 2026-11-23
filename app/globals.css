@@ -280,6 +280,23 @@ body {
   padding-inline: 22px;
 }
 
+/* The hero gets a wider well than the 1024px content column so the
+   headline can run on one line per sentence on large screens. */
+.hero-container {
+  max-width: 1320px;
+}
+/* Scales with the viewport so "I build systems that scale." fits on one
+   line from 1024px up; below that it wraps and balances. */
+.hero-title {
+  font-size: clamp(2.75rem, 6.4vw, 6.25rem);
+  line-height: 1.04;
+}
+@media (min-width: 1024px) {
+  .hero-title-line {
+    white-space: nowrap;
+  }
+}
+
 /* Inputs on Apple forms are soft, borderless-ish and rounded */
 .input-apple {
   width: 100%;
