@@ -55,14 +55,14 @@ const Contact = () => {
         <Reveal delay={0.15} className="max-w-[640px] mx-auto mt-14">
           <form onSubmit={onSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input
+              <input suppressHydrationWarning
                 type="text"
                 name="name"
                 placeholder="Name"
                 required
                 className="input-apple"
               />
-              <input
+              <input suppressHydrationWarning
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -70,7 +70,7 @@ const Contact = () => {
                 className="input-apple"
               />
             </div>
-            <textarea
+            <textarea suppressHydrationWarning
               name="message"
               rows={6}
               placeholder="Message"
@@ -79,7 +79,7 @@ const Contact = () => {
             />
 
             <div className="flex justify-center mt-8">
-              <button
+              <button suppressHydrationWarning
                 type="submit"
                 disabled={isSubmitting}
                 className="btn-apple disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"

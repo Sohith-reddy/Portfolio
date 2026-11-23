@@ -48,8 +48,12 @@ const ThemeToggle = ({ className = '' }) => {
 
   const isDark = theme === 'dark'
 
+  // suppressHydrationWarning: browser extensions (password managers, form
+  // fillers) inject attributes such as `fdprocessedid` into buttons and
+  // inputs before React hydrates. It only silences this element's own
+  // attributes; children are still checked.
   return (
-    <button
+    <button suppressHydrationWarning
       type="button"
       onClick={toggle}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}

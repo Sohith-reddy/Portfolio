@@ -101,7 +101,7 @@ const Navbar = () => {
 
             <ThemeToggle className="w-[17px] h-[17px]" />
 
-            <button
+            <button suppressHydrationWarning
               className={`md:hidden flex flex-col justify-center gap-[5px] w-6 h-6 ${styles.menuButton}`}
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
