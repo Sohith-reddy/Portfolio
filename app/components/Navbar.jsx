@@ -10,7 +10,9 @@ const navItems = [
   { label: "Home", href: "#top" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Experience", href: "#experience" },
   { label: "Work", href: "#work" },
+  { label: "Activity", href: "#stats" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -64,7 +66,7 @@ const Navbar = () => {
             Sohith Reddy
           </a>
 
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8">
             {navItems.map(({ label, href }) => (
               <li key={href}>
                 <a
@@ -99,7 +101,7 @@ const Navbar = () => {
 
             <ThemeToggle className="w-[17px] h-[17px]" />
 
-            <button
+            <button suppressHydrationWarning
               className={`md:hidden flex flex-col justify-center gap-[5px] w-6 h-6 ${styles.menuButton}`}
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}

@@ -35,22 +35,25 @@
 
 | Environment | Status | URL |
 |-------------|--------|-----|
-| Production | [![Production](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio&style=for-the-badge)](https://sohith-portfolio-sohith-reddys-projects.vercel.app/) | [View](https://sohith-portfolio-sohith-reddys-projects.vercel.app/) |
+| Production | [![Production](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio&style=for-the-badge)](https://www.sohithreddy.dev/) | [View](https://www.sohithreddy.dev/) |
 
 
 ## 🚀 Tech Stack & Features
 
 | Category | Technologies & Features |
 |:---------|:----------------------|
-| 🎯 **Frontend** | • Next.js 16<br/>• Tailwind CSS<br/>• Framer Motion |
-| 🛠️ **Backend** | • Spring Boot<br/>• PostgreSQL<br/>• Web3Forms Integration |
+| 🎯 **Frontend** | • Next.js 16<br/>• Tailwind CSS 4<br/>• Motion<br/>• Three.js<br/>• React Icons |
+| 📈 **Live data** | • LeetCode stats & submission heatmap<br/>• GitHub contribution heatmap<br/>• Fetched server-side, cached with ISR (6h) |
+| 🛠️ **Backend** | • [Spring Boot visit tracker](https://github.com/Sohith-reddy/Portfolio-Backend)<br/>• PostgreSQL<br/>• Web3Forms Integration |
 | ☁️ **Deployment** | • Vercel Platform<br/>• CI/CD Pipeline<br/>• Environment Management<br/>• Render<br/>• Docker |
 
 ## 🎯 Key Features
 
 | Category | Features |
 |----------|----------|
-| 📱 **UI/UX** | Responsive Design, Smooth Animations |
+| 📱 **UI/UX** | Responsive Design, Smooth Animations, Light / Dark Theme |
+| 🌐 **3D** | Three.js network-graph background (theme-aware, respects reduced motion) |
+| 🗂️ **Projects** | Pinned GitHub repos, filterable by category |
 | ⚡ **Performance** | 90+ Performance Score, Optimized Assets |
 | 🛡️ **Security** | Headers Protection, Form Validation |
 | 🔍 **SEO** | Meta Tags, Sitemap, robots.txt |
@@ -83,12 +86,16 @@ npm run dev
 
 ## 🔗 Environment Variables
 
-Create a `.env.local` file with:
+Copy `.env.example` to `.env.local` (or set it in the Vercel project settings):
 
 ```env
-NEXT_PUBLIC_WEB3FORMS_KEY=your_api_key
-NEXT_PUBLIC_VERCEL_URL=your_vercel_url
+# Base URL of the deployed Portfolio-Backend service, without a trailing slash.
+# When unset, visit tracking is disabled.
+NEXT_PUBLIC_API_URL=https://portfolio-backend-xxxxxxxxxx-el.a.run.app
 ```
+
+Visits are sent once per browser session to `POST {NEXT_PUBLIC_API_URL}/api/track`.
+Append `?ref=<name>` to the site URL to tag visits from a specific link (for example, a job application).
 
 ## 📬 API Integration
 

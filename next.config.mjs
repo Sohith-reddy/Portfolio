@@ -1,21 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ["localhost"],
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "3000",
-        pathname: "/assets/public/**",
-      },
-    ],
-  },
-  async rewrites() {
+  // Redirect the default Vercel URL to the custom domain
+  async redirects() {
     return [
       {
-        source: "/assets/public/:path*",
-        destination: "/assets/public/:path*",
+        source: "/:path*",
+        has: [{ type: "host", value: "sohith-portfolio.vercel.app" }],
+        destination: "https://www.sohithreddy.dev/:path*",
+        permanent: true,
       },
     ];
   },

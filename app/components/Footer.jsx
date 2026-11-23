@@ -27,7 +27,7 @@ const Footer = () => {
 
         <div className="border-t border-apple mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[12px] text-secondary tracking-[-0.005em]">
-            Copyright © 2026 Sohith Reddy. All rights reserved.
+            Copyright © {new Date().getFullYear()} Sohith Reddy. All rights reserved.
           </p>
           <ul className="flex items-center gap-6">
             {socials.map(({ Icon, label, href }) => (
