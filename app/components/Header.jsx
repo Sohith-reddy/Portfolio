@@ -1,5 +1,5 @@
 'use client'
-import { assets } from '@/assets/assets';
+import { assets, heroStats, links } from '@/assets/assets';
 import Image from 'next/image';
 import React from 'react'
 import { motion } from "motion/react";
@@ -7,9 +7,9 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
 const socials = [
-  { Icon: FaLinkedin, href: "https://www.linkedin.com/in/sohithreddy/", label: "LinkedIn" },
-  { Icon: SiLeetcode, href: "https://leetcode.com/u/sohith_reddy01/", label: "LeetCode" },
-  { Icon: FaGithub, href: "https://github.com/Sohith-reddy", label: "GitHub" },
+  { Icon: FaLinkedin, href: links.linkedin, label: "LinkedIn" },
+  { Icon: SiLeetcode, href: links.leetcode, label: "LeetCode" },
+  { Icon: FaGithub, href: links.github, label: "GitHub" },
 ];
 
 // Apple staggers hero elements in sequence rather than all at once.
@@ -26,14 +26,15 @@ const Header = () => {
   return (
     <section
       id="top"
-      className="min-h-screen flex flex-col items-center justify-center text-center pt-24 pb-16"
+      className="hero-section flex flex-col items-center justify-center text-center"
     >
-      <div className="apple-container flex flex-col items-center">
-        <motion.div variants={rise} initial="hidden" animate="show" custom={0}>
+      <div className="apple-container hero-container flex flex-col items-center">
+        <motion.div variants={rise} initial="hidden" animate="show" custom={0} className="relative">
+          <span className="avatar-glow" aria-hidden="true" />
           <Image
             src={assets.profile_img}
             alt="Sohith Reddy"
-            className="rounded-full w-28 h-28 object-cover mb-8"
+            className="hero-avatar relative rounded-full object-cover ring-1 ring-[var(--apple-card-border)]"
             priority
           />
         </motion.div>
@@ -43,9 +44,10 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={1}
-          className="apple-eyebrow mb-3"
+          className="status-pill hero-gap"
         >
-          Hi, I'm Sohith Reddy
+          <span className="live-dot" aria-hidden="true" />
+          Software Engineer (SDE-1) at Apptmyz
         </motion.p>
 
         <motion.h1
@@ -53,11 +55,14 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={2}
-          className="apple-hero max-w-4xl"
+          className="apple-hero hero-title hero-gap-sm"
         >
-          Full Stack Developer.
-          <br />
-          <span className="apple-gradient-text">Deep learning. Cloud.</span>
+          {/* Two blocks: on wide screens each line stays whole; on narrow
+              screens each one wraps and balances on its own. */}
+          <span className="block">Hi, I&apos;m Sohith.</span>
+          <span className="block hero-title-line">
+            <span className="apple-gradient-text">I build systems that scale.</span>
+          </span>
         </motion.h1>
 
         <motion.p
@@ -65,52 +70,47 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={3}
-          className="apple-subhead max-w-2xl mt-6"
+          className="apple-subhead hero-sub hero-gap-sm"
         >
-          I build scalable web applications with React, Next.js, Angular and
-          Node.js — and work across machine learning, computer vision and NLP.
+          Backend engineer on a B2B logistics SaaS platform&nbsp;— Spring Boot, Java,
+          PostgreSQL and Redis behind workflows processing 10K+ transactions a
+          day. Strongest on performance, shipping RAG/LLM features where they
+          genuinely help.
         </motion.p>
 
-        <motion.div
+        <motion.ul
           variants={rise}
           initial="hidden"
           animate="show"
           custom={4}
-          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-8"
+          className="hero-stats grid grid-cols-4 gap-2 sm:gap-3 hero-gap w-full max-w-3xl"
         >
-          <a href="#work" className="link-apple">
-            See my work
-            <span aria-hidden="true">&rsaquo;</span>
-          </a>
-          <a
-            href="/Resume.pdf"
-            download="Sohith_Reddy_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-apple"
-          >
-            Download résumé
-            <span aria-hidden="true">&rsaquo;</span>
-          </a>
-        </motion.div>
+          {heroStats.map(({ value, label }) => (
+            <li key={label} className="hero-stat">
+              <span className="hero-stat-value block font-semibold tracking-[-0.02em] text-primary tabular-nums">
+                {value}
+              </span>
+              <span className="hero-stat-label block text-secondary mt-0.5">{label}</span>
+            </li>
+          ))}
+        </motion.ul>
 
         <motion.div
           variants={rise}
           initial="hidden"
           animate="show"
           custom={5}
-          className="flex items-center gap-4 mt-10"
+          className="hero-cta flex flex-wrap items-center justify-center gap-4 hero-gap"
         >
-          <a href="#contact" className="btn-apple">
-            Contact me
+          <a href="#work" className="btn-apple">
+            See my work
           </a>
           <a
-            href="https://github.com/Sohith-reddy"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={links.resume}
+            download="Sohith_Reddy_Resume.pdf"
             className="btn-apple-secondary"
           >
-            View GitHub
+            Download résumé
           </a>
         </motion.div>
 
@@ -119,7 +119,7 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={6}
-          className="flex items-center gap-6 mt-12"
+          className="flex items-center gap-6 hero-gap"
         >
           {socials.map(({ Icon, href, label }) => (
             <a
