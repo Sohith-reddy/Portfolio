@@ -1,92 +1,77 @@
-import { achievementData, experienceData } from "@/assets/assets";
+'use client'
 import React from "react";
-import { motion } from "motion/react";
-import { FaBriefcase } from "react-icons/fa";
+import { achievementData, experienceData } from "@/assets/assets";
+import Reveal from "./Reveal";
 
 const Experience = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      id="experience"
-      className="w-full px-[12%] py-10 scroll-mt-20"
-    >
-      <motion.h4
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="text-center mb-2 text-lg ovo-font"
-      >
-        Where I&apos;ve worked
-      </motion.h4>
-      <motion.h2
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="text-center text-5xl ovo-font"
-      >
-        Experience
-      </motion.h2>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-12 mb-6"
-      >
-        {experienceData.map(({ role, company, period, points }, index) => (
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            key={index}
-            className="border border-gray-400 rounded-lg px-6 py-8 sm:px-8 hover:shadow-xl hover:bg-purple-50 hover:-translate-y-1 duration-500"
-          >
-            <div className="flex items-start gap-4">
-              <FaBriefcase
-                className="w-8 h-8 mt-1 shrink-0 text-gray-700"
-                aria-hidden="true"
-              />
-              <div>
-                <h3 className="text-lg text-gray-800 font-semibold">{role}</h3>
-                <p className="text-sm text-gray-600">
-                  {company} · {period}
-                </p>
+    <section id="experience" className="section-alt py-24 sm:py-32 scroll-mt-12">
+      <div className="apple-container">
+        <Reveal as="p" className="apple-eyebrow text-center">
+          Where I&apos;ve worked
+        </Reveal>
+        <Reveal as="h2" delay={0.05} className="apple-headline text-center mt-2">
+          Experience.
+        </Reveal>
+        <Reveal as="p" delay={0.1} className="apple-subhead text-center max-w-2xl mx-auto mt-5">
+          Building the backend of a B2B logistics SaaS platform — performance first.
+        </Reveal>
+
+        {/* Timeline */}
+        <ol className="timeline mt-16">
+          {experienceData.map(({ role, company, period, current, stack, points }, index) => (
+            <Reveal as="li" key={role} delay={0.08 * index} className="timeline-item">
+              <span className={`timeline-dot ${current ? "is-current" : ""}`} aria-hidden="true" />
+              <div className="apple-card surface-white p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                  <div>
+                    <h3 className="text-[21px] font-semibold tracking-[-0.018em] text-primary">{role}</h3>
+                    <p className="text-[15px] text-secondary mt-0.5">{company}</p>
+                  </div>
+                  <span className={`period-badge ${current ? "is-current" : ""}`}>
+                    {current && <span className="live-dot" aria-hidden="true" />}
+                    {period}
+                  </span>
+                </div>
+
+                <ul className="mt-5 space-y-2.5">
+                  {points.map((point) => (
+                    <li key={point} className="flex gap-3 text-[15px] leading-[1.55] text-secondary">
+                      <span className="project-bullet mt-[0.6em]" aria-hidden="true" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <ul className="flex flex-wrap gap-1.5 mt-6" aria-label="Tech used">
+                  {stack.map((s) => (
+                    <li key={s} className="tech-chip">
+                      {s}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-            <ul className="list-disc pl-5 mt-5 space-y-2 text-sm text-gray-600 leading-6">
-              {points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
-      </motion.div>
-      <motion.h4
-        initial={{ y: 20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="text-center mt-16 mb-8 text-2xl ovo-font"
-      >
-        Achievements & Certifications
-      </motion.h4>
-      <motion.ul
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-      >
-        {achievementData.map(({ icon: Icon, title, description }, index) => (
-          <motion.li
-            whileHover={{ scale: 1.05 }}
-            key={index}
-            className="border-[0.5px] border-gray-400 rounded-xl p-6 hover:bg-purple-50 hover:-translate-y-1 duration-500 hover:shadow-xl"
-          >
-            <Icon className="w-7 h-7 mt-3 text-gray-700" aria-hidden="true" />
-            <h3 className="my-4 font-semibold text-gray-700">{title}</h3>
-            <p className="text-gray-600 text-sm">{description}</p>
-          </motion.li>
-        ))}
-      </motion.ul>
-    </motion.div>
+            </Reveal>
+          ))}
+        </ol>
+
+        {/* Achievements */}
+        <Reveal as="h3" className="apple-eyebrow text-center mt-20">
+          Achievements &amp; certifications
+        </Reveal>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+          {achievementData.map(({ icon: Icon, title, description }, index) => (
+            <Reveal key={title} delay={0.06 * index} className="apple-card surface-white p-6">
+              <span className="icon-badge">
+                <Icon className="w-5 h-5" aria-hidden="true" />
+              </span>
+              <h4 className="mt-4 text-[16px] font-semibold tracking-[-0.012em] text-primary">{title}</h4>
+              <p className="mt-1.5 text-[13px] leading-[1.5] text-secondary">{description}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

@@ -35,22 +35,25 @@
 
 | Environment | Status | URL |
 |-------------|--------|-----|
-| Production | [![Production](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio&style=for-the-badge)](https://sohith-portfolio-sohith-reddys-projects.vercel.app/) | [View](https://sohith-portfolio-sohith-reddys-projects.vercel.app/) |
+| Production | [![Production](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio&style=for-the-badge)](https://www.sohithreddy.dev/) | [View](https://www.sohithreddy.dev/) |
 
 
 ## 🚀 Tech Stack & Features
 
 | Category | Technologies & Features |
 |:---------|:----------------------|
-| 🎯 **Frontend** | • Next.js 15<br/>• Tailwind CSS 4<br/>• Motion<br/>• React Icons |
+| 🎯 **Frontend** | • Next.js 16<br/>• Tailwind CSS 4<br/>• Motion<br/>• Three.js<br/>• React Icons |
+| 📈 **Live data** | • LeetCode stats & submission heatmap<br/>• GitHub contribution heatmap<br/>• Fetched server-side, cached with ISR (6h) |
 | 🛠️ **Backend** | • [Spring Boot visit tracker](https://github.com/Sohith-reddy/Portfolio-Backend)<br/>• PostgreSQL<br/>• Web3Forms Integration |
-| ☁️ **Deployment** | • Vercel Platform<br/>• CI/CD Pipeline<br/>• Environment Management |
+| ☁️ **Deployment** | • Vercel Platform<br/>• CI/CD Pipeline<br/>• Environment Management<br/>• Render<br/>• Docker |
 
 ## 🎯 Key Features
 
 | Category | Features |
 |----------|----------|
-| 📱 **UI/UX** | Responsive Design, Smooth Animations |
+| 📱 **UI/UX** | Responsive Design, Smooth Animations, Light / Dark Theme |
+| 🌐 **3D** | Three.js network-graph background (theme-aware, respects reduced motion) |
+| 🗂️ **Projects** | Pinned GitHub repos, filterable by category |
 | ⚡ **Performance** | 90+ Performance Score, Optimized Assets |
 | 🛡️ **Security** | Headers Protection, Form Validation |
 | 🔍 **SEO** | Meta Tags, Sitemap, robots.txt |
