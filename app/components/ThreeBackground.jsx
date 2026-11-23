@@ -115,13 +115,13 @@ const ThreeBackground = () => {
       // it across the hero copy; it only gets its own gentle tilt.
       const core = new THREE.Group();
       // Sits off to the right of the hero copy on desktop, above it on mobile.
-      const coreBase = { x: 0, y: isSmall ? 10 : 5 };
-      // Keep the core in the right-hand margin at any aspect ratio: 74% of
+      const coreBase = { x: 0, y: isSmall ? 10 : 8.5 };
+      // Keep the core in the right-hand margin at any aspect ratio: 80% of
       // the half-width visible at the core's depth (camera z 32, core z -4).
       const placeCore = () => {
         if (isSmall) return;
         const halfH = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * 36;
-        coreBase.x = halfH * camera.aspect * 0.74;
+        coreBase.x = halfH * camera.aspect * 0.8;
         core.position.x = coreBase.x;
       };
       core.position.set(coreBase.x, coreBase.y, -4);

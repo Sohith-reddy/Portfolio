@@ -34,9 +34,6 @@ export const assets = {
   profile_img,
 };
 
-/* ------------------------------------------------------------------
-   Links
-   ------------------------------------------------------------------ */
 export const links = {
   github: "https://github.com/Sohith-reddy",
   linkedin: "https://www.linkedin.com/in/sohithreddy/",
@@ -48,9 +45,6 @@ export const links = {
 export const GITHUB_USERNAME = "Sohith-reddy";
 export const LEETCODE_USERNAME = "sohith_reddy01";
 
-/* ------------------------------------------------------------------
-   Hero / About (from the resume summary)
-   ------------------------------------------------------------------ */
 export const heroStats = [
   { value: "10K+", label: "transactions / day" },
   { value: "600ms", label: "API latency, from 1.8s" },
@@ -65,7 +59,7 @@ export const infoList = [
   },
   {
     title: "Education",
-    description: "B.Tech in Information Technology, KMIT (2022 – 2026) · CGPA 9.0",
+    description: "B.Tech in Information Technology, KMIT (2022 – 2026) · CGPA 8.95",
   },
   {
     title: "Focus",
@@ -73,8 +67,6 @@ export const infoList = [
   },
 ];
 
-/* Technical skills, grouped exactly as on the resume. Items with an icon
-   render as a brand-coloured chip; the rest render as plain text chips. */
 export const skillGroups = [
   {
     title: "Languages",
@@ -169,7 +161,7 @@ export const serviceData = [
     icon: FaServer,
     title: "Backend Engineering",
     description:
-      "Production REST APIs on Spring Boot, FastAPI and Express, backed by PostgreSQL, MySQL, MongoDB and Redis.",
+      "Production REST APIs on Spring Boot, Gin ,FastAPI and Express, backed by PostgreSQL, MySQL, MongoDB and Redis.",
     link: "https://github.com/Sohith-reddy/Portfolio-Backend",
   },
   {
@@ -194,9 +186,6 @@ export const serviceData = [
   },
 ];
 
-/* ------------------------------------------------------------------
-   Experience & achievements
-   ------------------------------------------------------------------ */
 export const experienceData = [
   {
     role: "Software Engineer (SDE-1)",
@@ -224,6 +213,31 @@ export const experienceData = [
       "Maintained Docker-based CI/CD pipelines deploying to AWS, and took features through code review and testing in Agile sprints.",
     ],
   },
+  {
+    role: "Full Stack & UI/UX Developer Intern",
+    company: "Wisemango",
+    period: "May 2025 – June 2025",
+    stack: [
+      "Node.js",
+      "React",
+      "JavaScript",
+      "REST APIs",
+      "Database Management",
+      "CI/CD",
+      "SonarQube",
+      "Docker",
+      "Linux",
+      "AWS",
+      "RAG"
+    ],
+    points: [
+      "Developed full-stack web application features using React and Node.js, integrating frontend interfaces with backend APIs and database services.",
+      "Designed and implemented responsive user interfaces, improving application usability, accessibility, and overall user experience.",
+      "Worked on backend functionality, REST API integration, and database management to support application workflows and data processing.",
+      "Contributed to AI-powered applications involving Retrieval-Augmented Generation (RAG), web scraping, text summarization, sentiment analysis, and intelligent job-resume matching.",
+      "Integrated code quality and deployment workflows using SonarQube, CI/CD pipelines, and deployment hooks; worked with Docker, Linux, and AWS environments."
+    ],
+  },
 ];
 
 export const achievementData = [
@@ -249,11 +263,6 @@ export const achievementData = [
   },
 ];
 
-/* ------------------------------------------------------------------
-   Projects
-   `pinned` mirrors the pinned repositories on GitHub. Shortify is on the
-   resume but its repository is private, so it has no public code link.
-   ------------------------------------------------------------------ */
 export const projectCategories = [
   { id: "all", label: "All" },
   { id: "backend", label: "Backend & Systems" },

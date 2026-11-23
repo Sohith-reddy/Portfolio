@@ -17,7 +17,6 @@ const Experience = () => {
           Building the backend of a B2B logistics SaaS platform — performance first.
         </Reveal>
 
-        {/* Timeline */}
         <ol className="timeline mt-16">
           {experienceData.map(({ role, company, period, current, stack, points }, index) => (
             <Reveal as="li" key={role} delay={0.08 * index} className="timeline-item">
@@ -55,7 +54,6 @@ const Experience = () => {
           ))}
         </ol>
 
-        {/* Achievements */}
         <Reveal as="h3" className="apple-eyebrow text-center mt-20">
           Achievements &amp; certifications
         </Reveal>
