@@ -55,11 +55,14 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={2}
-          className="apple-hero max-w-4xl"
+          className="apple-hero max-w-5xl"
         >
-          Hi, I&apos;m Sohith.
-          <br />
-          <span className="apple-gradient-text">I build systems that scale.</span>
+          {/* Separate blocks so each line balances on its own instead of
+              leaving "scale." stranded on a third line. */}
+          <span className="block">Hi, I&apos;m Sohith.</span>
+          <span className="block">
+            <span className="apple-gradient-text">I build systems that scale.</span>
+          </span>
         </motion.h1>
 
         <motion.p
@@ -69,7 +72,7 @@ const Header = () => {
           custom={3}
           className="apple-subhead max-w-2xl mt-6"
         >
-          Backend engineer on a B2B logistics SaaS platform — Spring Boot, Java,
+          Backend engineer on a B2B logistics SaaS platform&nbsp;— Spring Boot, Java,
           PostgreSQL and Redis behind workflows processing 10K+ transactions a
           day. Strongest on performance, shipping RAG/LLM features where they
           genuinely help.
