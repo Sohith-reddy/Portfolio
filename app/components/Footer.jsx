@@ -35,7 +35,6 @@ const Footer = () => {
                 <a
                   href={href}
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-[12px] text-secondary hover:text-primary transition-colors"
                 >
                   <Icon className="w-3.5 h-3.5" />
