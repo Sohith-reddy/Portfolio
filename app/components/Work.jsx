@@ -152,7 +152,7 @@ const Work = () => {
         <Reveal delay={0.12} className="flex justify-center mt-10">
           <div role="tablist" aria-label="Filter projects by category" className="segmented">
             {projectCategories.map(({ id, label }) => (
-              <button
+              <button suppressHydrationWarning
                 key={id}
                 role="tab"
                 aria-selected={active === id}
