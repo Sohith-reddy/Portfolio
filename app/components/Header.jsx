@@ -26,15 +26,15 @@ const Header = () => {
   return (
     <section
       id="top"
-      className="min-h-screen flex flex-col items-center justify-center text-center pt-24 pb-16"
+      className="hero-section flex flex-col items-center justify-center text-center"
     >
       <div className="apple-container hero-container flex flex-col items-center">
-        <motion.div variants={rise} initial="hidden" animate="show" custom={0} className="relative mb-8">
+        <motion.div variants={rise} initial="hidden" animate="show" custom={0} className="relative">
           <span className="avatar-glow" aria-hidden="true" />
           <Image
             src={assets.profile_img}
             alt="Sohith Reddy"
-            className="relative rounded-full w-28 h-28 object-cover ring-1 ring-[var(--apple-card-border)]"
+            className="hero-avatar relative rounded-full object-cover ring-1 ring-[var(--apple-card-border)]"
             priority
           />
         </motion.div>
@@ -44,7 +44,7 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={1}
-          className="status-pill mb-5"
+          className="status-pill hero-gap"
         >
           <span className="live-dot" aria-hidden="true" />
           Software Engineer (SDE-1) at Apptmyz
@@ -55,7 +55,7 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={2}
-          className="apple-hero hero-title"
+          className="apple-hero hero-title hero-gap-sm"
         >
           {/* Two blocks: on wide screens each line stays whole; on narrow
               screens each one wraps and balances on its own. */}
@@ -70,7 +70,7 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={3}
-          className="apple-subhead max-w-3xl mt-6"
+          className="apple-subhead hero-sub hero-gap-sm"
         >
           Backend engineer on a B2B logistics SaaS platform&nbsp;— Spring Boot, Java,
           PostgreSQL and Redis behind workflows processing 10K+ transactions a
@@ -83,14 +83,14 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={4}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 w-full max-w-3xl"
+          className="hero-stats grid grid-cols-4 gap-2 sm:gap-3 hero-gap w-full max-w-3xl"
         >
           {heroStats.map(({ value, label }) => (
             <li key={label} className="hero-stat">
-              <span className="block text-[20px] sm:text-[22px] font-semibold tracking-[-0.02em] text-primary tabular-nums">
+              <span className="hero-stat-value block font-semibold tracking-[-0.02em] text-primary tabular-nums">
                 {value}
               </span>
-              <span className="block text-[12px] text-secondary mt-0.5">{label}</span>
+              <span className="hero-stat-label block text-secondary mt-0.5">{label}</span>
             </li>
           ))}
         </motion.ul>
@@ -100,7 +100,7 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={5}
-          className="flex flex-wrap items-center justify-center gap-4 mt-10"
+          className="hero-cta flex flex-wrap items-center justify-center gap-4 hero-gap"
         >
           <a href="#work" className="btn-apple">
             See my work
@@ -119,7 +119,7 @@ const Header = () => {
           initial="hidden"
           animate="show"
           custom={6}
-          className="flex items-center gap-6 mt-10"
+          className="flex items-center gap-6 hero-gap"
         >
           {socials.map(({ Icon, href, label }) => (
             <a
