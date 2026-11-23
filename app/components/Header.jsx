@@ -1,77 +1,139 @@
-import { assets } from '@/assets/assets';
+'use client'
+import { assets, heroStats, links } from '@/assets/assets';
 import Image from 'next/image';
 import React from 'react'
 import { motion } from "motion/react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+
+const socials = [
+  { Icon: FaLinkedin, href: links.linkedin, label: "LinkedIn" },
+  { Icon: SiLeetcode, href: links.leetcode, label: "LeetCode" },
+  { Icon: FaGithub, href: links.github, label: "GitHub" },
+];
+
+// Apple staggers hero elements in sequence rather than all at once.
+const rise = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, delay: 0.1 * i, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
 
 const Header = () => {
   return (
-    <div id="top" className="w-11/12 max-w-4xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 pt-20">
-      {/* Changed h-screen to min-h-screen and added pt-20 for navbar spacing */}
-      <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-      >
-        <Image
-          src={assets.profile_img}
-          alt="Profile"
-          className="rounded-full w-32 mt-16" // Added mt-16 for extra top margin
-          priority // Added priority for faster loading
-        />
-      </motion.div>
-      <motion.h3
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="ovo-font flex items-end gap-2 text-xl md:text-2xl mb-3"
-      >
-        Hi! I'm Sohith Reddy
-        <Image src={assets.hand_icon} alt="" className="w-6" />
-      </motion.h3>
-      <motion.h1
-        initial={{ y: -30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="text-3xl sm:text-6xl lg:text-[66px] ovo-font"
-      >
-        Software Engineer building fast, scalable backends
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.7 }}
-        className="max-w-1xl mx-auto ovo-font"
-      >
-        SDE-1 at Apptmyz working on Spring Boot, PostgreSQL and Redis systems
-        that handle 10K+ transactions daily — with a focus on performance,
-        distributed systems and pragmatic AI.
-      </motion.p>
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 w-full max-w-md mx-auto">
-        <motion.a
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          href="#contact"
-          className="px-6 py-2.5 border rounded-full text-white bg-black border-gray-500 flex items-center gap-2 text-sm md:text-base hover:bg-gray-800 transition-colors"
+    <section
+      id="top"
+      className="min-h-screen flex flex-col items-center justify-center text-center pt-24 pb-16"
+    >
+      <div className="apple-container flex flex-col items-center">
+        <motion.div variants={rise} initial="hidden" animate="show" custom={0} className="relative mb-8">
+          <span className="avatar-glow" aria-hidden="true" />
+          <Image
+            src={assets.profile_img}
+            alt="Sohith Reddy"
+            className="relative rounded-full w-28 h-28 object-cover ring-1 ring-[var(--apple-card-border)]"
+            priority
+          />
+        </motion.div>
+
+        <motion.p
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          custom={1}
+          className="status-pill mb-5"
         >
-          Contact me
-          <Image src={assets.right_arrow_white} alt="" className="w-4" />
-        </motion.a>
-        <motion.a
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          href="/Resume.pdf"
-          download="Sohith_Reddy_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-2.5 border rounded-full border-gray-500 flex items-center gap-2 text-sm md:text-base hover:bg-gray-100 transition-colors"
+          <span className="live-dot" aria-hidden="true" />
+          Software Engineer (SDE-1) at Apptmyz
+        </motion.p>
+
+        <motion.h1
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          custom={2}
+          className="apple-hero max-w-4xl"
         >
-          Resume
-          <Image src={assets.download_icon} alt="download" className="w-4" />
-        </motion.a>
+          Hi, I&apos;m Sohith.
+          <br />
+          <span className="apple-gradient-text">I build systems that scale.</span>
+        </motion.h1>
+
+        <motion.p
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          custom={3}
+          className="apple-subhead max-w-2xl mt-6"
+        >
+          Backend engineer on a B2B logistics SaaS platform — Spring Boot, Java,
+          PostgreSQL and Redis behind workflows processing 10K+ transactions a
+          day. Strongest on performance, shipping RAG/LLM features where they
+          genuinely help.
+        </motion.p>
+
+        <motion.ul
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          custom={4}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10 w-full max-w-3xl"
+        >
+          {heroStats.map(({ value, label }) => (
+            <li key={label} className="hero-stat">
+              <span className="block text-[20px] sm:text-[22px] font-semibold tracking-[-0.02em] text-primary tabular-nums">
+                {value}
+              </span>
+              <span className="block text-[12px] text-secondary mt-0.5">{label}</span>
+            </li>
+          ))}
+        </motion.ul>
+
+        <motion.div
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          custom={5}
+          className="flex flex-wrap items-center justify-center gap-4 mt-10"
+        >
+          <a href="#work" className="btn-apple">
+            See my work
+          </a>
+          <a
+            href={links.resume}
+            download="Sohith_Reddy_Resume.pdf"
+            className="btn-apple-secondary"
+          >
+            Download résumé
+          </a>
+        </motion.div>
+
+        <motion.div
+          variants={rise}
+          initial="hidden"
+          animate="show"
+          custom={6}
+          className="flex items-center gap-6 mt-10"
+        >
+          {socials.map(({ Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="text-secondary hover:text-primary transition-colors duration-300"
+            >
+              <Icon className="w-[22px] h-[22px]" />
+            </a>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
+
 export default Header;
