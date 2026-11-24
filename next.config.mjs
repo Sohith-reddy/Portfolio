@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Redirect the default Vercel URL to the custom domain
   async redirects() {
     return [
       {

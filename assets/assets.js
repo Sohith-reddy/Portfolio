@@ -5,6 +5,7 @@ import {
   SiExpress,
   SiFastapi,
   SiFlask,
+  SiGin,
   SiGit,
   SiGithubactions,
   SiGo,
@@ -18,6 +19,7 @@ import {
   SiLinux,
   SiMongodb,
   SiMysql,
+  SiNextdotjs,
   SiPostgresql,
   SiPython,
   SiReact,
@@ -83,6 +85,7 @@ export const skillGroups = [
     title: "Backend",
     items: [
       { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
+      { name: "Gin", icon: SiGin, color: "#00ADD8" },
       { name: "FastAPI", icon: SiFastapi, color: "#009688" },
       { name: "Express.js", icon: SiExpress },
       { name: "Hibernate / JPA", icon: SiHibernate, color: "#BCAE79" },
@@ -127,6 +130,8 @@ export const skillGroups = [
     items: [
       { name: "Angular", icon: SiAngular, color: "#DD0031" },
       { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiJavascript, color: "#F0DB4F" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
       { name: "RxJS" },
     ],
@@ -153,9 +158,6 @@ export const skillGroups = [
   },
 ];
 
-/* ------------------------------------------------------------------
-   Services
-   ------------------------------------------------------------------ */
 export const serviceData = [
   {
     icon: FaServer,
@@ -249,7 +251,7 @@ export const achievementData = [
   {
     icon: FaGraduationCap,
     title: "Top 0.5% academically",
-    description: "B.Tech in Information Technology with a CGPA of 9.0.",
+    description: "B.Tech in Information Technology with a CGPA of 8.95.",
   },
   {
     icon: FaBrain,
