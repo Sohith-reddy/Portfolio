@@ -19,7 +19,7 @@ const Contact = () => {
       const { data } = await axios.post("https://api.web3forms.com/submit", formData, { timeout: 10000 });
 
       if (data.success) {
-        setResult("Form Submitted Successfully");
+        setResult("Feedback sent successfully. Thank you!");
         event.target.reset();
       } else {
         setResult(data.message);
