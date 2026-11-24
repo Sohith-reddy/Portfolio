@@ -2,6 +2,7 @@
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+import VisitCount from "./VisitCount";
 
 const socials = [
   { Icon: FaGithub, label: "GitHub", href: "https://github.com/Sohith-reddy" },
@@ -26,9 +27,12 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-apple mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[12px] text-secondary tracking-[-0.005em]">
-            Copyright © {new Date().getFullYear()} Sohith Reddy. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center sm:items-start gap-1">
+            <p className="text-[12px] text-secondary tracking-[-0.005em]">
+              Copyright © {new Date().getFullYear()} Sohith Reddy. All rights reserved.
+            </p>
+            <VisitCount />
+          </div>
           <ul className="flex items-center gap-6">
             {socials.map(({ Icon, label, href }) => (
               <li key={label}>

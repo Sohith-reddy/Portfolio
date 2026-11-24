@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from "react";
+import axios from "axios";
 import Reveal from "./Reveal";
 
 const Contact = () => {
@@ -15,22 +16,17 @@ const Contact = () => {
     formData.append("access_key", "92886517-d35c-4c4e-9f87-02e8b875996d");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
+      const { data } = await axios.post("https://api.web3forms.com/submit", formData, { timeout: 10000 });
 
       if (data.success) {
         setResult("Form Submitted Successfully");
         event.target.reset();
       } else {
-        console.log("Error", data);
         setResult(data.message);
       }
     } catch (error) {
-      setResult("Something went wrong. Please try again.");
+      // axios throws on a non-2xx reply, so the message is in error.response.
+      setResult(error.response?.data?.message || "Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

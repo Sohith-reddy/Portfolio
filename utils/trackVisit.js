@@ -1,9 +1,8 @@
 import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+import { api } from "./api";
 
 export async function trackVisit() {
-  if (!API_URL) return;
+  if (!api) return;
 
   try {
     const params = new URLSearchParams(window.location.search);
@@ -18,13 +17,23 @@ export async function trackVisit() {
       // Location is optional, still record the visit.
     }
 
-    await axios.post(`${API_URL.replace(/\/$/, "")}/api/track`, {
+    await api.post("/api/track", {
       ...location,
-      ref: ref || "unknown", // recruiter identifier
+      ref: ref || "unknown", 
       page: window.location.pathname,
       referrer: document.referrer || null,
     });
   } catch (err) {
     console.error("Error tracking visit:", err);
+  }
+}
+
+export async function getVisitCount() {
+  if (!api) return null;
+  try {
+    const { data } = await api.get("/api/track/count");
+    return data;
+  } catch {
+    return null;
   }
 }
