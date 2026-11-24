@@ -5,20 +5,23 @@ import Reveal from "./Reveal";
 
 const Contact = () => {
   const [result, setResult] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
+    setIsSuccess(false);
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "92886517-d35c-4c4e-9f87-02e8b875996d");
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY);
 
     try {
       const { data } = await axios.post("https://api.web3forms.com/submit", formData, { timeout: 10000 });
 
       if (data.success) {
+        setIsSuccess(true);
         setResult("Feedback sent successfully. Thank you!");
         event.target.reset();
       } else {
@@ -31,8 +34,6 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-
-  const isSuccess = result.includes("Success");
 
   return (
     <section id="contact" className="py-24 sm:py-32 scroll-mt-12">
